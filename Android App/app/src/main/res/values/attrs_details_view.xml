@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="DetailsView">
+        <attr name="IsExpanded" format="boolean"/>
+    </declare-styleable>
+</resources>

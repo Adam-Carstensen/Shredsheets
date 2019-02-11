@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Settings"
+                android:textSize="18dp" />
+
+            <Button
+                android:id="@+id/menuDefaultsButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:height="50dp"
+                android:background="#3788CB"
+                android:onClick="onDefaultsClicked"
+                android:text="Restore Defaults"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp" />
+
+            <Button
+                android:id="@+id/menuKeyButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:height="60dp"
+                android:background="#444"
+                android:onClick="onKeyMenuItemClicked"
+                android:text="Key"
+                android:textColor="#82FF27"
+                android:textSize="24dp" />
+
+            <RadioGroup
+                android:id="@+id/instrumentButtonGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/guitar6RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Guitar"
+                    android:textColor="#CCCCCC"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/bass4RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Bass"
+                    android:textColor="#CCCCCC"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/ukuleleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Ukulele"
+                    android:textColor="#CCCCCC"
+                    android:textSize="20dp" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/scale_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="60dp"></Spinner>
+
+
+                <!--<Button-->
+                <!--android:id="@+id/menuScaleButton"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="2dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:height="60dp"-->
+                <!--android:background="#82B4F0"-->
+                <!--android:onClick="onScaleMenuItemClicked"-->
+                <!--android:text="Scale"-->
+                <!--android:textColor="#333"-->
+                <!--android:textSize="24dp" />-->
+
+                <Spinner
+                    android:id="@+id/mode_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="60dp"></Spinner>
+
+                <!--<Button-->
+                <!--android:id="@+id/menuModeButton"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="2dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:height="60dp"-->
+                <!--android:background="#7332A0"-->
+                <!--android:onClick="onModeMenuItemClicked"-->
+                <!--android:text="Mode"-->
+                <!--android:textColor="#EEE"-->
+                <!--android:textSize="24dp" />-->
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/menuStringCountButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:height="80dp"
+                    android:background="#444"
+                    android:onClick="onInstrumentMenuItemClicked"
+                    android:text="Strings"
+                    android:textAlignment="center"
+                    android:textColor="#82FF27"
+                    android:textSize="24dp" />
+
+                <Button
+                    android:id="@+id/menuTuningButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:height="80dp"
+                    android:background="#444"
+                    android:maxLines="1"
+                    android:onClick="onTuningMenuItemClicked"
+                    android:text="Tuning"
+                    android:textAlignment="center"
+                    android:textColor="#82FF27"
+                    android:textSize="24dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/menuThemesButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:height="60dp"
+                android:background="#3278DC"
+                android:text="Themes"
+                android:textColor="#FFF"
+                android:textSize="24dp" />
+
+            <Button
+                android:id="@+id/menuHighlightingButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:height="60dp"
+                android:background="#3278DC"
+                android:text="Highlighting"
+                android:textColor="#FFF"
+                android:textSize="24dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/youtubeButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="2dp"
+                    android:onClick="onYoutubeButtonClicked"
+                    android:padding="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/youtube" />
+
+                <Button
+                    android:id="@+id/menuHelpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FF64FF"
+                    android:onClick="onHelpMenuItemClicked"
+                    android:text="Help"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:textSize="40dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/realisticFretSpacingToggle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOff="Even Frets"
+                    android:textOn="Realistic Frets" />
+
+                <ToggleButton
+                    android:id="@+id/leftyToggle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textOff="Lefty"
+                    android:textOn="Righty" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

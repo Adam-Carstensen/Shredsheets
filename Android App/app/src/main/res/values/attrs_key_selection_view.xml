@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="KeySliderView">
+        <attr name="exampleString" format="string" />
+    </declare-styleable>
+</resources>

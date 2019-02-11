@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <revert.shredsheets.views.keySlider.KeySliderView
+        android:id="@+id/fretboardKeySlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5" />
+
+    <revert.shredsheets.views.fretboard.runner.RunnerView
+        android:id="@+id/fretboardTopRunner" android:layout_marginTop="0px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <revert.shredsheets.views.fretboard.FretboardView
+        android:id="@+id/fretboardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        app:key="C" />
+
+    <revert.shredsheets.views.fretboard.runner.RunnerView
+        android:id="@+id/fretboardBottomRunner" android:layout_marginTop="0px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="revert.shredsheets.fragments.DetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        tools:layout="@layout/fragment_details"></fragment>
+
+</LinearLayout>

@@ -1,0 +1,194 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFF"
+    tools:context="revert.shredsheets.FretboardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Shredsheets"
+            android:textColor="#333"
+            android:textSize="50dp" android:id="@+id/shredsheetsTitleText" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/menu_bars" />
+
+            <TextView
+                android:id="@+id/Settings_Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Settings"
+                android:textColor="#3242BC"
+                android:textSize="30dp" />
+
+        </LinearLayout>
+<RadioGroup android:id="@+id/instrumentButtonGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" >
+    <RadioButton
+        android:id="@+id/guitar6RadioButton"
+        android:textColor="#333333" android:textSize="20dp" android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Guitar" android:checked="true" />
+    <RadioButton
+        android:id="@+id/bass4RadioButton"
+        android:textColor="#333333" android:textSize="20dp" android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Bass" />
+    <RadioButton
+        android:id="@+id/ukuleleRadioButton"
+        android:textColor="#333333" android:textSize="20dp" android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Ukulele" />
+</RadioGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/CMajorButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#3788CB"
+                    android:onClick="onCMajorButtonClicked"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="@string/c_major"
+                    android:textAllCaps="false"
+                    android:textColor="#222222" android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="65dp">
+                </Button>
+
+                <Button
+                    android:id="@+id/AMinorButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#642C76"
+                    android:onClick="onAMinorButtonClicked"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="A Minor"
+                    android:textAllCaps="false"
+                    android:textColor="#222222" android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="65dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/EPentatonicMinorButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#F4DA3E"
+                    android:onClick="onEPentatonicMinorButtonClicked"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="E Minor Pentatonic"
+                    android:textAllCaps="false"
+                    android:textColor="#222222" android:fontFamily="sans-serif-smallcaps" android:lineSpacingMultiplier="0.8"
+                    android:textSize="65dp" />
+
+                <Button
+                    android:id="@+id/FretboardNavigationButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#ff8bc34a"
+                    android:onClick="onFretboardNavigationButtonClicked"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="More"
+                    android:textAllCaps="false"
+                    android:textColor="#222222" android:fontFamily="sans-serif-smallcaps" android:lineSpacingMultiplier="0.8"
+                    android:textSize="65dp" />
+            </LinearLayout>
+
+            <!--921AD8 \ 1846CE -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:orientation="horizontal" android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/youtubeButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:padding="0dp"
+                    android:layout_margin="2dp"
+                    android:src="@drawable/youtube"
+                    android:onClick="onYoutubeButtonClicked" android:scaleType="fitCenter" />
+
+                <Button
+                    android:id="@+id/HelpButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_margin="2dp"
+                    android:background="#333"
+                    android:onClick="onHelpButtonClicked"
+                    android:text="Help"
+                    android:textAllCaps="false"
+                    android:textColor="#D600C7" android:fontFamily="sans-serif-smallcaps"
+                    android:textSize="30dp" android:lineSpacingMultiplier="0.9" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Shredsheets</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_shredsheets">Shredsheets</string>
+    <string name="title_activity_main">Shredsheets</string>
+    <string name="title_activity_fullscreen">Shredsheets</string>
+    <string name="key_settings">Key</string>
+    <string name="tuning_settings">Tuning</string>
+    <string name="scale_settings">Scale</string>
+    <string name="mode_settings">Mode</string>
+    <string name="instrument_settings">Instrument (strings)</string>
+    <string name="highlighting_settings">Highlighting</string>
+
+
+    <string-array name="scalesArray">
+        <item>Major &amp; Minor</item>
+        <item>Pentatonic Minor</item>
+        <item>Pentatonic Major</item>
+        <item>Blues</item>
+        <item>Harmonic Minor</item>
+        <item>Melodic Minor</item>
+    </string-array>
+    <string name="hello_world">Hello world!</string>
+    <string name="c_major">C Major</string>
+
+</resources>

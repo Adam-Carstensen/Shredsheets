@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/tuning_string_LayoutContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout android:id="@+id/tuning_string_layout_1" android:tag="tuning_string_layout_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1st string" />
+
+                <Button
+                    android:id="@+id/tuning_string_button_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="e" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_2" android:tag="tuning_string_layout_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2nd string" />
+
+                <Button
+                    android:id="@+id/tuning_string_button_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="B" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_3" android:tag="tuning_string_layout_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3rd string" />
+
+                <Button
+                    android:id="@+id/tuning_string_button_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="G" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_4" android:tag="tuning_string_layout_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4th string" />
+
+                <Button
+                    android:id="@+id/tuning_string_button_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="D" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_5" android:tag="tuning_string_layout_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5th string" />
+
+                <Button android:id="@+id/tuning_string_button_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="A" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_6" android:tag="tuning_string_layout_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/tuning_string_label_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6th string" />
+
+                <Button android:id="@+id/tuning_string_button_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="E" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_7" android:tag="tuning_string_layout_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7th string" />
+
+                <Button android:id="@+id/tuning_string_button_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="B" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_8" android:tag="tuning_string_layout_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8th string" />
+
+                <Button android:id="@+id/tuning_string_button_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="G" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_9" android:tag="tuning_string_layout_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9th string" />
+
+                <Button android:id="@+id/tuning_string_button_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="D" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_10" android:tag="tuning_string_layout_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10th string" />
+
+                <Button android:id="@+id/tuning_string_button_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="A" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_11" android:tag="tuning_string_layout_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11th string" />
+
+                <Button android:id="@+id/tuning_string_button_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="E" />
+
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/tuning_string_layout_12" android:tag="tuning_string_layout_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12th string" />
+
+                <Button android:id="@+id/tuning_string_button_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onFirstStringClicked"
+                    android:text="B" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/commonTuningsLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/tuning_button_eadgbe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Standard \n(E A D G B e)" />
+
+            <Button
+                android:id="@+id/tuning_button_gCEA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukulele Standard \n(g C E A)" />
+
+            <Button
+                android:id="@+id/tuning_button_EBEADGBe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8 String Alternate \n(E B E A D G B e)" />
+
+            <Button
+                android:id="@+id/tuning_button_BEADG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5 String Bass \n(B E A D G)" />
+
+
+            <!--TODO: Redesign tuning fragment to be more string count specific, or incorporate actual instrument models-->
+
+            <Button
+                android:id="@+id/tuning_button_dropD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onDropDClicked"
+                android:text="Dropped D \n(D A D G B e)" />
+
+            <Button
+                android:id="@+id/tuning_button_newStandard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onNewStandardTuningClicked"
+                android:text="New Standard \n(C G D A E g)" />
+
+            <Button
+                android:id="@+id/tuning_button_openC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open C \n(C G C G C e)" />
+
+            <Button
+                android:id="@+id/tuning_button_openD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open D \n(D A D F# A d)" />
+
+            <Button
+                android:id="@+id/tuning_button_openE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open E \n(E B E G# B e)" />
+
+            <Button
+                android:id="@+id/tuning_button_openF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open F \n(C F C F A f)" />
+
+            <Button
+                android:id="@+id/tuning_button_openG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open G \n(D G D G B d)" />
+
+            <Button
+                android:id="@+id/tuning_button_openA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open A \n(E A C# E A e)" />
+
+            <Button
+                android:id="@+id/tuning_button_openB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open B \n(B F# B F# B D#)" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

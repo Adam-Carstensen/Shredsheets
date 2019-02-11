@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/highlightingColorsContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical" android:layout_weight="1">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/highlightingDegreePresets"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/highlighting_button_none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="None" />
+
+            <Button
+                android:id="@+id/highlighting_button_rootnote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Root Note" />
+
+            <Button
+                android:id="@+id/highlighting_button_1357"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7th\n1 3 5 7" />
+            <Button
+
+                android:id="@+id/highlighting_button_135"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maj &amp; Min Triads\n1 3 5" />
+
+            <Button
+                android:id="@+id/highlighting_button_145"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Suspended\n1 4 5" />
+
+            <Button
+                android:id="@+id/highlighting_button_125"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Suspended 2nd\n1 2 5" />
+
+            <Button
+                android:id="@+id/highlighting_button_1457"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7th sus\n1 4 5 7" />
+
+            <Button
+                android:id="@+id/highlighting_button_1257"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="7th sus 2nd\n1 2 5 7" />
+
+
+            <Button
+                android:id="@+id/highlighting_button_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5th\n1 5" />
+
+            <Button
+                android:id="@+id/highlighting_button_136"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6th\n1 3 6" />
+
+            <Button
+                android:id="@+id/highlighting_button_13579"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="9th\n1 3 5 7 9(2)" />
+
+            <Button
+                android:id="@+id/highlighting_button_1357913"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="13th\n1 3 5 7 9(2) 13(6)" />
+
+            <Button
+                android:id="@+id/highlighting_button_1234567"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Scale\n1 2 3 4 5 6 7" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

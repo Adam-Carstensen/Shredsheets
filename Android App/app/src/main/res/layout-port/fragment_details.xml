@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:weightSum="3">
+
+    <revert.shredsheets.views.details.NotesAndIntervalsView
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_gravity="center_vertical" android:layout_marginLeft="5dp"
+        android:id="@+id/notesAndIntervalsView" android:layout_weight="1" />
+
+    <revert.shredsheets.views.details.SelectedKeyView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/selectedKeyView" android:layout_weight="2"/>
+
+
+</LinearLayout>

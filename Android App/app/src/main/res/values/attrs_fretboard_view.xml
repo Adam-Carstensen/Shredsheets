@@ -1,0 +1,31 @@
+<resources>
+    <declare-styleable name="FretboardView">
+        <attr name="stringCount" format="integer" />
+        <attr name="landscapeFretCount" format="integer" />
+        <attr name="portraitFretCount" format="integer" />
+        <attr name="key" format="enum">
+            <enum name="C" value="0"></enum>
+            <enum name="B_sharp" value="1"></enum>
+            <enum name="C_sharp" value="2"></enum>
+            <enum name="D_flat" value="3"></enum>
+            <enum name="D" value="4"></enum>
+            <enum name="D_sharp" value="5"></enum>
+            <enum name="E_flat" value="6"></enum>
+            <enum name="E" value="7"></enum>
+            <enum name="F_flat" value="8"></enum>
+            <enum name="E_Sharp" value="9"></enum>
+            <enum name="F" value="10"></enum>
+            <enum name="F_sharp" value="11"></enum>
+            <enum name="G_flat" value="12"></enum>
+            <enum name="G" value="13"></enum>
+            <enum name="G_sharp" value="14"></enum>
+            <enum name="A_flat" value="15"></enum>
+            <enum name="A" value="16"></enum>
+            <enum name="A_sharp" value="17"></enum>
+            <enum name="B_flat" value="18"></enum>
+            <enum name="B" value="19"></enum>
+            <enum name="C_flat" value="20"></enum>
+        </attr>
+        <attr name="mode" format="integer" />
+    </declare-styleable>
+</resources>
