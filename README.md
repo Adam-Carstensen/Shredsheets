@@ -1,7 +1,4 @@
 # Shredsheets
-Shredsheets, the most useful spreadsheet ever created!  Also, so apps and stuff.  Finally open source!
-
----
 
 Shredsheets is for understanding music theory applied to guitar, bass, ukulele, or anything with frets.  
 
