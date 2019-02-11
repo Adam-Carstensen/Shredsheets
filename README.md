@@ -1,5 +1,7 @@
 # Shredsheets
 
+![alt text](https://github.com/Adam-Carstensen/Shredsheets/blob/master/versions/Shredsheets%20v2.2.1.png "Shredsheets Excel v2.2.1")
+
 Shredsheets is for understanding music theory applied to guitar, bass, ukulele, or anything with frets.  
 
 Fully dynamic and adaptive fretboard models teach scales and modes intuitively with special emphasis on harmony and understanding.
