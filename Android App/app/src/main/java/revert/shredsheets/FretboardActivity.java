@@ -8,6 +8,8 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+
+import revert.shredsheets.fragments.HelpFragment;
 import revert.shredsheets.models.SessionModel;
 import revert.shredsheets.views.fretboard.FretboardGestureListener;
 
@@ -42,5 +44,17 @@ public class FretboardActivity extends FragmentActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
+    }
+
+    public void onGithubButtonClicked(View view) {
+        String url = "https://github.com/Adam-Carstensen/Shredsheets";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
+    public void onHelpButtonClicked(View view) {
+        HelpFragment helpFragment = new HelpFragment();
+        helpFragment.show(getSupportFragmentManager(), "HelpFragment");
     }
 }

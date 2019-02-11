@@ -14,7 +14,7 @@
         <activity
             android:name="revert.shredsheets.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,16 +24,12 @@
         <activity
             android:name="revert.shredsheets.FretboardActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
     </application>
 
 </manifest>

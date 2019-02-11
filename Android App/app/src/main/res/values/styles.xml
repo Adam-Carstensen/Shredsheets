@@ -33,4 +33,8 @@
         <item name="android:shadowRadius">1</item>
     </style>
 
+    <style name="SpinnerItemStyle">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>

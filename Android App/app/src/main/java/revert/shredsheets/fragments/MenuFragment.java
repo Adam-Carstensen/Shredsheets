@@ -3,6 +3,7 @@ package revert.shredsheets.fragments;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 import revert.common.DialogModule;
 import revert.common.DialogResponseListener;
@@ -182,7 +184,7 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
     }
 
     private void PopulateSpinners(SessionModel session) {
-        Scale currentScale = SessionModel.getInstance().getScale();
+        Scale currentScale = session.getScale();
         int currentScalePosition = 0;
         final String[] scaleTitles = new String[Scales.AllScales.length];
         for (int i = 0; i < Scales.AllScales.length; i++) {
@@ -205,7 +207,14 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
         }
 
         final Spinner scaleSpinner = menuView.findViewById(R.id.scale_spinner);
-        ArrayAdapter<String> scaleAdapter = new ArrayAdapter<>(session.currentActivity, android.R.layout.simple_spinner_item, scaleTitles);
+        ArrayAdapter<String> scaleAdapter = new ArrayAdapter<String>(session.currentActivity, R.layout.spinner_view_layout, scaleTitles) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView view = (TextView)super.getView(position, convertView, parent);
+                view.setTextColor(Color.WHITE);
+                return view;
+            }
+        };
         scaleAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         scaleSpinner.setAdapter(scaleAdapter);
         scaleSpinner.setSelection(currentScalePosition);
@@ -227,14 +236,20 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
 
         String[] modeNames = currentScale.getModeNames().clone();
         int currentMode = currentScale.getMode();
-        int currentModePosition = 0;
         modeNames[currentMode] = "Mode: " + modeNames[currentMode];
 
         final Spinner modeSpinner = menuView.findViewById(R.id.mode_spinner);
-        ArrayAdapter<String> modeAdapter = new ArrayAdapter<>(session.currentActivity, android.R.layout.simple_spinner_item, modeNames);
+        ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(session.currentActivity, R.layout.spinner_view_layout, modeNames){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView view = (TextView)super.getView(position, convertView, parent);
+                view.setTextColor(Color.WHITE);
+                return view;
+            }
+        };
         modeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         modeSpinner.setAdapter(modeAdapter);
-        modeSpinner.setSelection(currentModePosition);
+        modeSpinner.setSelection(currentMode);
         modeSpinner.post(new Runnable() {
             public void run() {
                 modeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -250,13 +265,6 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
                 });
             }
         });
-    }
-
-    public void onYoutubeButtonClicked(View view) {
-        String url = "https://www.youtube.com/channel/UCdQjkqGS3QpdNK5rSthbe9w";
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        startActivity(intent);
     }
 
     private void ConfigureInstrumentButtons() {

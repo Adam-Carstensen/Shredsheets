@@ -2,4 +2,6 @@
 
     <color name="black_overlay">#66000000</color>
 
+    <color name="spinner_text_color">#FFFFFF</color>
+
 </resources>

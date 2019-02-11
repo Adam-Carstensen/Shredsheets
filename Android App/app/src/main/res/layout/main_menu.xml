@@ -93,7 +93,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="60dp"></Spinner>
+                    android:minHeight="60dp"
+                    android:theme="@style/SpinnerItemStyle"
+                    ></Spinner>
 
 
                 <!--<Button-->
@@ -114,7 +116,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="60dp"></Spinner>
+                    android:minHeight="60dp"
+                    android:theme="@style/SpinnerItemStyle"></Spinner>
 
                 <!--<Button-->
                 <!--android:id="@+id/menuModeButton"-->
@@ -193,37 +196,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/youtubeButton"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="2dp"
-                    android:onClick="onYoutubeButtonClicked"
-                    android:padding="0dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/youtube" />
-
-                <Button
-                    android:id="@+id/menuHelpButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:layout_weight="1"
-                    android:background="#FF64FF"
-                    android:onClick="onHelpMenuItemClicked"
-                    android:text="Help"
-                    android:textAlignment="center"
-                    android:textColor="#FFF"
-                    android:textSize="40dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <ToggleButton
@@ -243,6 +215,47 @@
                     android:textOn="Righty" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/youtubeButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="2dp"
+                    android:onClick="onYoutubeButtonClicked"
+                    android:padding="0dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/youtube" />
+
+
+                <ImageButton
+                    android:id="@+id/githubButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="0dp"
+                    android:layout_margin="2dp"
+                    android:src="@drawable/github_logo"
+                    android:onClick="onGithubButtonClicked" android:scaleType="fitCenter" />
+
+
+                <Button
+                    android:id="@+id/menuHelpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:background="#FF64FF"
+                    android:onClick="onHelpMenuItemClicked"
+                    android:text="Help"
+                    android:textAlignment="center"
+                    android:textColor="#FFF"
+                    android:textSize="40dp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -152,7 +152,14 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onYoutubeButtonClicked(View view) {
-        String url = "https://www.youtube.com/channel/UCdQjkqGS3QpdNK5rSthbe9w";
+        String url = "https://www.youtube.com/channel/UCA4aAjbeGgXdq_Ac04j0OWw";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
+    public void onGithubButtonClicked(View view) {
+        String url = "https://github.com/Adam-Carstensen/Shredsheets";
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);

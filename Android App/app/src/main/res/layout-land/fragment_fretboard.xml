@@ -9,7 +9,7 @@
     <revert.shredsheets.views.keySlider.KeySliderView
         android:id="@+id/fretboardKeySlider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:layout_weight="1.5" />
 
     <revert.shredsheets.views.fretboard.runner.RunnerView
