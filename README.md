@@ -2,6 +2,8 @@
 
 ![alt text](https://github.com/Adam-Carstensen/Shredsheets/blob/master/versions/Shredsheets%20v2.2.1.png "Shredsheets Excel v2.2.1")
 
+For lessons and explanations, check out the Revert Studios YouTube channel at https://www.youtube.com/channel/UCA4aAjbeGgXdq_Ac04j0OWw
+
 Shredsheets is for understanding music theory applied to guitar, bass, ukulele, or anything with frets.  
 
 Fully dynamic and adaptive fretboard models teach scales and modes intuitively with special emphasis on harmony and understanding.
