@@ -35,7 +35,7 @@
         android:id="@+id/detailsFragment"
         android:name="revert.shredsheets.fragments.DetailsFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_weight="4"
         tools:layout="@layout/fragment_details"></fragment>
 

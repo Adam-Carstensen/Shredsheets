@@ -149,7 +149,6 @@
                     android:layout_weight="1"
                     android:height="80dp"
                     android:background="#444"
-                    android:onClick="onInstrumentMenuItemClicked"
                     android:text="Strings"
                     android:textAlignment="center"
                     android:textColor="#82FF27"
@@ -171,16 +170,16 @@
                     android:textSize="24dp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/menuThemesButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:height="60dp"
-                android:background="#3278DC"
-                android:text="Themes"
-                android:textColor="#FFF"
-                android:textSize="24dp" />
+            <!--<Button-->
+                <!--android:id="@+id/menuThemesButton"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="2dp"-->
+                <!--android:height="60dp"-->
+                <!--android:background="#3278DC"-->
+                <!--android:text="Themes"-->
+                <!--android:textColor="#FFF"-->
+                <!--android:textSize="24dp" />-->
 
             <Button
                 android:id="@+id/menuHighlightingButton"

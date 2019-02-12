@@ -44,8 +44,91 @@ public class TuningFragment extends FullScreenFragment {
         tuningButtonsByString.put(11, (Button) tuningView.findViewById(R.id.tuning_string_button_12));
 
         setTuningDialogHandlers();
+        setTuningEventHandlers();
 
+        SessionModel session = SessionModel.getInstance();
 
+        tuningView.findViewById(R.id.tuning_string_layout_1).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_2).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_3).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_4).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_5).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_6).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_7).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_8).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_9).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_10).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_11).setVisibility(View.VISIBLE);
+        tuningView.findViewById(R.id.tuning_string_layout_12).setVisibility(View.VISIBLE);
+
+        switch (session.stringCount) {
+            case 1:
+                tuningView.findViewById(R.id.tuning_string_layout_5).setVisibility(View.GONE);
+            case 2:
+                tuningView.findViewById(R.id.tuning_string_layout_4).setVisibility(View.GONE);
+            case 3:
+                tuningView.findViewById(R.id.tuning_string_layout_3).setVisibility(View.GONE);
+            case 4:
+                tuningView.findViewById(R.id.tuning_string_layout_2).setVisibility(View.GONE);
+            case 5:
+                tuningView.findViewById(R.id.tuning_string_layout_1).setVisibility(View.GONE);
+            case 6:
+                tuningView.findViewById(R.id.tuning_string_layout_7).setVisibility(View.GONE);
+            case 7:
+                tuningView.findViewById(R.id.tuning_string_layout_8).setVisibility(View.GONE);
+            case 8:
+                tuningView.findViewById(R.id.tuning_string_layout_9).setVisibility(View.GONE);
+            case 9:
+                tuningView.findViewById(R.id.tuning_string_layout_10).setVisibility(View.GONE);
+            case 10:
+                tuningView.findViewById(R.id.tuning_string_layout_11).setVisibility(View.GONE);
+            case 11:
+                tuningView.findViewById(R.id.tuning_string_layout_12).setVisibility(View.GONE);
+            default:
+                break;
+        }
+
+        switch (session.stringCount) {
+            case 1:
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("1st string");
+                break;
+            case 2:
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("1st string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("2nd string");
+                break;
+            case 3:
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("1st string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("2nd string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("3rd string");
+                break;
+            case 4:
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_3)).setText("1st string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("2nd string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("3rd string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("4th string");
+                break;
+            case 5:
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_2)).setText("1st string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_3)).setText("2nd string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("3rd string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("4th string");
+                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("5th string");
+                break;
+        }
+
+        if (session.stringCount != 4)
+            tuningView.findViewById(R.id.tuning_button_gCEA).setVisibility(View.GONE);
+
+        if (session.stringCount != 5)
+            tuningView.findViewById(R.id.tuning_button_BEADG).setVisibility(View.GONE);
+
+        if (session.stringCount != 8)
+            tuningView.findViewById(R.id.tuning_button_EBEADGBe).setVisibility(View.GONE);
+
+        return tuningView;
+    }
+
+    private void setTuningEventHandlers() {
         tuningView.findViewById(R.id.tuning_button_EBEADGBe).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,75 +258,6 @@ public class TuningFragment extends FullScreenFragment {
                 SessionModel.getInstance().getMenuFragment().dismiss();
             }
         });
-
-
-        SessionModel session = SessionModel.getInstance();
-
-        switch (session.stringCount) {
-            case 1:
-                tuningView.findViewById(R.id.tuning_string_layout_5).setVisibility(View.GONE);
-            case 2:
-                tuningView.findViewById(R.id.tuning_string_layout_4).setVisibility(View.GONE);
-            case 3:
-                tuningView.findViewById(R.id.tuning_string_layout_3).setVisibility(View.GONE);
-            case 4:
-                tuningView.findViewById(R.id.tuning_string_layout_2).setVisibility(View.GONE);
-            case 5:
-                tuningView.findViewById(R.id.tuning_string_layout_1).setVisibility(View.GONE);
-            case 6:
-                tuningView.findViewById(R.id.tuning_string_layout_7).setVisibility(View.GONE);
-            case 7:
-                tuningView.findViewById(R.id.tuning_string_layout_8).setVisibility(View.GONE);
-            case 8:
-                tuningView.findViewById(R.id.tuning_string_layout_9).setVisibility(View.GONE);
-            case 9:
-                tuningView.findViewById(R.id.tuning_string_layout_10).setVisibility(View.GONE);
-            case 10:
-                tuningView.findViewById(R.id.tuning_string_layout_11).setVisibility(View.GONE);
-            case 11:
-                tuningView.findViewById(R.id.tuning_string_layout_12).setVisibility(View.GONE);
-            default:
-                break;
-        }
-
-        switch (session.stringCount) {
-            case 1:
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("1st string");
-                break;
-            case 2:
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("1st string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("2nd string");
-                break;
-            case 3:
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("1st string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("2nd string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("3rd string");
-                break;
-            case 4:
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_3)).setText("1st string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("2nd string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("3rd string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("4th string");
-                break;
-            case 5:
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_2)).setText("1st string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_3)).setText("2nd string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_4)).setText("3rd string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_5)).setText("4th string");
-                ((TextView) tuningView.findViewById(R.id.tuning_string_label_6)).setText("5th string");
-                break;
-        }
-
-        if (session.stringCount != 4)
-            tuningView.findViewById(R.id.tuning_button_gCEA).setVisibility(View.GONE);
-
-        if (session.stringCount != 5)
-            tuningView.findViewById(R.id.tuning_button_BEADG).setVisibility(View.GONE);
-
-        if (session.stringCount != 8)
-            tuningView.findViewById(R.id.tuning_button_EBEADGBe).setVisibility(View.GONE);
-
-        return tuningView;
     }
 
     public void setTuningDialogHandlers() {
