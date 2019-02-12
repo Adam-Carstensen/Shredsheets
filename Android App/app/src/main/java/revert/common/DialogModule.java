@@ -55,50 +55,50 @@ public class DialogModule {
         }
         BeginGetDialogSelection(context, inflater, title, items, titles, listener);
     }
-
-    public static <T> void BeginGetDialogSelection(Context context, LayoutInflater inflater, String title, T[] items, final String[] titles, final String[] descriptions, DialogResponseListener<Dialog, T> listener)
-    {
-        View dialogView = inflater.inflate(R.layout.custom_list_layout, null);
-
-        final Dialog dialog = new AlertDialog.Builder(context).setTitle(title).setView(dialogView).create();
-        final Set<T> selectedItem = new HashSet<>();
-        final T[] finalItems = items;
-        final DialogResponseListener<Dialog, T> finalListener = listener;
-
-        ListView lv = dialogView.findViewById(R.id.customListLayoutListView);
-
-        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_list_item_2, android.R.id.text1, items) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView text1 = view.findViewById(android.R.id.text1);
-                TextView text2 = view.findViewById(android.R.id.text2);
-
-                text1.setText(titles[position]);
-                text2.setText(descriptions[position]);
-                return view;
-            }
-        };
-
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                selectedItem.add(finalItems[position]);
-                dialog.dismiss();
-                finalListener.onItemClicked(dialog, (T)selectedItem.toArray()[0]);
-            }
-        });
-
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(dialog.getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-        lv.setLayoutParams(new LinearLayout.LayoutParams(lp));
-        dialog.getWindow().setAttributes(lp);
-        dialog.show();
-    }
+//
+//    public static <T> void BeginGetDialogSelection(Context context, LayoutInflater inflater, String title, T[] items, final String[] titles, final String[] descriptions, DialogResponseListener<Dialog, T> listener)
+//    {
+//        View dialogView = inflater.inflate(R.layout.custom_list_layout, null);
+//
+//        final Dialog dialog = new AlertDialog.Builder(context).setTitle(title).setView(dialogView).create();
+//        final Set<T> selectedItem = new HashSet<>();
+//        final T[] finalItems = items;
+//        final DialogResponseListener<Dialog, T> finalListener = listener;
+//
+//        ListView lv = dialogView.findViewById(R.id.customListLayoutListView);
+//
+//        ArrayAdapter adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_2, items) {
+//            @Override
+//            public View getView(int position, View convertView, ViewGroup parent) {
+//                View view = super.getView(position, convertView, parent);
+//                TextView text1 = view.findViewById(android.R.id.text1);
+//                TextView text2 = view.findViewById(android.R.id.text2);
+//
+//                text1.setText(titles[position]);
+//                text2.setText(descriptions[position]);
+//                return view;
+//            }
+//        };
+//
+//        lv.setAdapter(adapter);
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                selectedItem.add(finalItems[position]);
+//                dialog.dismiss();
+//                finalListener.onItemClicked(dialog, (T)selectedItem.toArray()[0]);
+//            }
+//        });
+//
+//        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+//        lp.copyFrom(dialog.getWindow().getAttributes());
+//        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+//        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+//        lv.setLayoutParams(new LinearLayout.LayoutParams(lp));
+//        dialog.getWindow().setAttributes(lp);
+//        dialog.show();
+//    }
 
 
     public static <T> void BeginGetDialogSelection(Context context, LayoutInflater inflater, String title, T[] items, String[] titles, DialogResponseListener<Dialog, T> listener)
