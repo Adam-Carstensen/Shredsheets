@@ -21,7 +21,6 @@ public enum Keys {
         return key;
     }
 
-
     public static String GetWholeNoteName(Keys key) {
         switch (key) {
             case C_Flat:
@@ -57,7 +56,6 @@ public enum Keys {
         }
     }
 
-
     public static int GetWholeNoteIndex(Keys key) {
         switch (key) {
             case C_Flat:
@@ -92,7 +90,6 @@ public enum Keys {
                 return 0;
         }
     }
-
 
     public static int GetWholeNotePosition(Keys key) {
         switch (key) {

@@ -6,7 +6,6 @@ import revert.shredsheets.models.SessionModel;
 import revert.shredsheets.models.themes.ShredsheetsTheme;
 
 public class ColorModule {
-
     public static int getHsvContrastingColor(int color) {
         float[] hsv = new float[3]; //{ h = 0..360, s = 0..1, v = 0..1 }
         Color.colorToHSV(color, hsv);
@@ -35,7 +34,6 @@ public class ColorModule {
         double y = (double)(299 * Color.red(color) + 587 * Color.green(color) + 114 * Color.blue(color)) / (double)1000;
         return y >= 128 ? Color.parseColor("#888888") : Color.parseColor("#666666");
     }
-
 
     public static int getIntervalColor(String intervalName) {
         SessionModel session = SessionModel.getInstance();

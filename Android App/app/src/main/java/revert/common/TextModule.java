@@ -212,11 +212,10 @@ public class TextModule {
         return DrawText(canvas, value, container, textDimensions, getTextPaint(color), alignment, strokeText);
     }
 
-
 //    public static RectF DrawScaledText(Canvas canvas, String value, RectF container, RectF textDimensions, int color, Layout.Alignment alignment) {
 //        return DrawScaledText(canvas, value, container, textDimensions, getTextPaint(color), alignment);
 //    }
-//
+
 //    public static RectF DrawText(Canvas canvas, String value, RectF container, int color, Layout.Alignment alignment) {
 //        return DrawText(canvas, value, container, getTextPaint(color), alignment);
 //    }
@@ -233,5 +232,4 @@ public class TextModule {
                 return value + sufixes[value % 10];
         }
     }
-
 }

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+
 import revert.shredsheets.R;
 import revert.shredsheets.enums.Instruments;
 import revert.shredsheets.enums.Keys;
@@ -29,7 +30,7 @@ public class SessionModel {
     private float modeSwipeProgress;
     private Keys key = Keys.C;
     private boolean leftyMode = false;
-    private int[]  viewsToRefresh = new int[]
+    private int[] viewsToRefresh = new int[]
             {
                     R.id.fretboardKeySlider,
                     R.id.fretboardFragment,
@@ -72,7 +73,7 @@ public class SessionModel {
     }
 
     public float getFretX(int fretNumber, float width) {
-        return getFretX(fretNumber,width, getFretCount());
+        return getFretX(fretNumber, width, getFretCount());
     }
 
     public float getFretX(int fretNumber, float width, int fretCount) {
@@ -152,7 +153,6 @@ public class SessionModel {
                 swipeRemainder += wholeFretWidth * currentFretCoefficient;
                 stepCount--;
             }
-
         }
 
         return stepCount;
@@ -174,7 +174,7 @@ public class SessionModel {
             return currentActivity.getResources().getConfiguration().screenWidthDp;
         } else {
             DisplayMetrics displayMetrics = currentActivity.getResources().getDisplayMetrics();
-            return (int) Math.ceil((float)displayMetrics.widthPixels / displayMetrics.density);
+            return (int) Math.ceil((float) displayMetrics.widthPixels / displayMetrics.density);
         }
     }
 
@@ -183,7 +183,7 @@ public class SessionModel {
             return currentActivity.getResources().getConfiguration().screenHeightDp;
         } else {
             DisplayMetrics displayMetrics = currentActivity.getResources().getDisplayMetrics();
-            return (int) Math.ceil((float)displayMetrics.heightPixels / displayMetrics.density);
+            return (int) Math.ceil((float) displayMetrics.heightPixels / displayMetrics.density);
         }
     }
 
@@ -245,7 +245,7 @@ public class SessionModel {
 
     public void setDefaults() {
         this.setKey(Keys.C);
-        this.theme.setDegreeHighlightingVector( this.theme.defaultVector);
+        this.theme.setDegreeHighlightingVector(this.theme.defaultVector);
         this.setTuning(TuningModel.getStandardTuning(), true);
         this.setStringCount(6, true);
         this.setScale(new MajorScale());

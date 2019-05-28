@@ -51,7 +51,6 @@ public abstract class GenericView extends View {
         textPaint.setStyle(Paint.Style.STROKE);
     }
 
-
     public void ChangeOrientation(Resources resources) {
         ChangeOrientation(resources.getConfiguration().orientation);
     }

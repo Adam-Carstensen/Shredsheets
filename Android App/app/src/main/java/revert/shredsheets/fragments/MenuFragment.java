@@ -269,11 +269,11 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
 
     private void ConfigureInstrumentButtons() {
         RadioButton guitarButton = menuView.findViewById(R.id.guitar6RadioButton);
-        guitarButton.setText(Html.fromHtml("Guitar"));
+        guitarButton.setText("Guitar");
         RadioButton bassButton = menuView.findViewById(R.id.bass4RadioButton);
-        bassButton.setText(Html.fromHtml("Bass"));
+        bassButton.setText("Bass");
         RadioButton ukuleleButton = menuView.findViewById(R.id.ukuleleRadioButton);
-        ukuleleButton.setText(Html.fromHtml("Ukulele"));
+        ukuleleButton.setText("Ukulele");
 
         switch (SessionModel.getInstance().getInstrument()) {
             case Bass4:
@@ -305,7 +305,6 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
         return new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-
                 SessionModel session = SessionModel.getInstance();
 
                 RadioButton guitarButton = menuView.findViewById(R.id.guitar6RadioButton);
@@ -373,4 +372,3 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
         super.dismiss();
     }
 }
-

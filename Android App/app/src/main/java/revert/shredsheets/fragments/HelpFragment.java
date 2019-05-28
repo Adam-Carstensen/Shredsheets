@@ -12,7 +12,6 @@ import android.webkit.WebView;
 import revert.shredsheets.R;
 
 public class HelpFragment extends FullScreenFragment {
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.help_home, container, false);

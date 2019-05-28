@@ -45,7 +45,6 @@ public class DialogModule {
         return dialog;
     }
 
-
     public static <T> void BeginGetDialogSelection(Context context, LayoutInflater inflater, String title, T[] items, DialogResponseListener<Dialog, T> listener)
     {
         String[] titles = new String[items.length];
@@ -55,7 +54,7 @@ public class DialogModule {
         }
         BeginGetDialogSelection(context, inflater, title, items, titles, listener);
     }
-//
+
 //    public static <T> void BeginGetDialogSelection(Context context, LayoutInflater inflater, String title, T[] items, final String[] titles, final String[] descriptions, DialogResponseListener<Dialog, T> listener)
 //    {
 //        View dialogView = inflater.inflate(R.layout.custom_list_layout, null);

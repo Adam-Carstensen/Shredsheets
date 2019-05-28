@@ -12,6 +12,4 @@ public class TuningView {
         SessionModel session = SessionModel.getInstance();
         return session.currentActivity.getLayoutInflater().inflate(R.layout.fragment_tuning, null);
     }
-
-
 }
