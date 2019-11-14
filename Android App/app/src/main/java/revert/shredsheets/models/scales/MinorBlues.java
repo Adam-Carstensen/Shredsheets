@@ -17,13 +17,9 @@ public class MinorBlues extends Scale {
         return new String[]{"Ionian", "Phrygian", "Lydian", "Mixolydian", "Aolian", "Locrian"};
     }
 
-
-
     @Override
     public int getDegree(int i) {
         if (i == 5) return 4;
         return i;
     }
-
-
 }

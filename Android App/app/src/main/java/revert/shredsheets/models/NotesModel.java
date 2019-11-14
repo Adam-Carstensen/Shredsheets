@@ -7,8 +7,6 @@ import revert.shredsheets.models.scales.Scale;
 import revert.shredsheets.models.scales.ScaleNote;
 
 public class NotesModel {
-
-
     public static String[] AllNotes = {"C", "C#", "Db", "D", "D#", "Eb", "E", "E#", "Fb", "F", "F#", "Gb", "G", "G#", "Ab", "A", "A#", "Bb", "B", "B#"};
     public static Keys[] AllKeys = {Keys.C, Keys.C_Sharp, Keys.D_Flat, Keys.D, Keys.D_Sharp, Keys.E_Flat, Keys.E, Keys.E_Sharp, Keys.F_Flat, Keys.F, Keys.F_Sharp, Keys.G_Flat, Keys.G, Keys.G_Sharp, Keys.A_Flat, Keys.A, Keys.A_Sharp, Keys.B_Flat, Keys.B, Keys.B_Sharp};
 
@@ -31,14 +29,11 @@ public class NotesModel {
         return GetStandardKeyIndexByKey().get(key);
     }
 
-
     public static String[] WholeNotes = {"C", "D", "E", "F", "G", "A", "B"};
     public static Keys[] WholeNoteKeys = {Keys.C, Keys.D, Keys.E, Keys.F, Keys.G, Keys.A, Keys.B};
 
     public static String[] KeySliderStrings = {"C", "#b", "D", "#b", "E", "F", "#b", "G", "#b", "A", "#b", "B"};
-
     public static int[] WholeNotePositions = {0, 2, 4, 5, 7, 9, 11};
-
 
     private static String[][] calculatedNotesMatrix = null;
 

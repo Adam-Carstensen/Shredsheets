@@ -50,7 +50,6 @@ public class RectModule {
         canvas.drawRect(rect.left, rect.top, rect.right, rect.bottom, fillPaint);
         canvas.drawRect(rect.left, rect.top, rect.right, rect.bottom, borderPaint);
 
-
         borderPaint.setStyle(borderStyle);
         borderPaint.setStrokeWidth(previousStrokeWidth);
     }
@@ -182,7 +181,8 @@ public class RectModule {
                     break;
             }
             return new RectF(bounds.left + offset, bounds.top, bounds.left + newRectWidth, bounds.bottom);
-        } else //bounds = 4/3 (1.33) vs rect = 5/3 (1.66)  width will be constrained
+        }
+        else //bounds = 4/3 (1.33) vs rect = 5/3 (1.66)  width will be constrained
         {
             coefficient = bounds.width() / rect.width();  //4/5 = 0.8
             float newRectHeight = rect.height() * coefficient; //3 * 0.8 = 2.4
