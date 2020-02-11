@@ -1,7 +1,13 @@
 package revert.shredsheets.enums;
 
 public enum Keys {
-    C(0, "C"), C_Sharp(1, "C#"), D_Flat(1,"Db"), D(2,"D"), D_Sharp(3,"D#"), E_Flat(3,"Eb"), E(4,"E"), F_Flat(4,"Fb"), E_Sharp(5,"E#"), F(5,"F"), F_Sharp(6,"F#"), G_Flat(6, "Gb"), G(7, "G"), G_Sharp(8, "G#"), A_Flat(8, "Ab"), A(9, "A"), A_Sharp(10, "A#"), B_Flat(10, "Bb"), B(11, "B"), C_Flat(11, "Cb"), B_Sharp(0, "B#");
+    C(0, "C"), C_Sharp(1, "C♯"),
+    D_Flat(1,"D♭"), D(2,"D"), D_Sharp(3,"D♯"),
+    E_Flat(3,"E♭"), E(4,"E"),
+    F_Flat(4,"F♭"), E_Sharp(5,"E♯"), F(5,"F"), F_Sharp(6,"F♯"),
+    G_Flat(6, "G♭"), G(7, "G"), G_Sharp(8, "G♯"),
+    A_Flat(8, "A♭"), A(9, "A"), A_Sharp(10, "A♯"),
+    B_Flat(10, "B♭"), B(11, "B"), C_Flat(11, "C♭"), B_Sharp(0, "B♯");
 
     private int key;
     public static Keys[] OrderedKeys = new Keys[]{Keys.C, Keys.C_Sharp, Keys.D_Flat, Keys.D, Keys.D_Sharp, Keys.E_Flat, Keys.E, Keys.F_Flat, Keys.E_Sharp, Keys.F, Keys.F_Sharp, Keys.G_Flat, Keys.G, Keys.G_Sharp, Keys.A_Flat, Keys.A, Keys.A_Sharp, Keys.B_Flat, Keys.B, Keys.C_Flat, Keys.B_Sharp };

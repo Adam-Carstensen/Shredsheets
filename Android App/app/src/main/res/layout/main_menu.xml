@@ -203,7 +203,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textOff="Even Frets"
-                    android:textOn="Realistic Frets" />
+                    android:textOn="Realistic Frets"
+                     />
 
                 <ToggleButton
                     android:id="@+id/leftyToggle"

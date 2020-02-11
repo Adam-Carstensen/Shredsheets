@@ -7,7 +7,7 @@ import revert.shredsheets.models.SessionModel;
 
 public class BlueTheme extends ShredsheetsTheme {
 
-    private Boolean[] highlightedDegrees = null;
+    private boolean[] highlightedDegrees = null;
 
     private int[] degreeColors = null;
 
@@ -28,13 +28,13 @@ public class BlueTheme extends ShredsheetsTheme {
     }
 
     @Override
-    public Boolean[] getDegreeHighlightingVector() {
+    public boolean[] getDegreeHighlightingVector() {
         return highlightedDegrees != null ? highlightedDegrees :
                 (highlightedDegrees = defaultVector); //supports up to max 12 degrees
     }
 
     @Override
-    public void setDegreeHighlightingVector(Boolean[] values) {
+    public void setDegreeHighlightingVector(boolean[] values) {
         highlightedDegrees = values;
         SessionModel.getInstance().invalidateViews();
     }

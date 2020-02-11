@@ -51,7 +51,7 @@ public class FretboardView extends GenericView {
 
         double[] fretSpacing = FretSpacingModel.GetFretSpacing(fretCount, this.getWidth());
 
-        Boolean[] degreeHighlightingVector = theme.getDegreeHighlightingVector();
+        boolean[] degreeHighlightingVector = theme.getDegreeHighlightingVector();
         int[] degreeColors = theme.getDegreeColors();
 
         float fretHeight = (float) this.getHeight() / (float) session.stringCount;

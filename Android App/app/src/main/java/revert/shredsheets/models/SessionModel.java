@@ -19,11 +19,13 @@ import revert.shredsheets.models.themes.ShredsheetsTheme;
 
 public class SessionModel {
     private static SessionModel instance;
+
+    public boolean debugLayout = false;
     public FragmentActivity currentActivity;
-    public Boolean isEditMode = false;
-    public Boolean openSettings = false;
+
+    public boolean openSettings = false;
     public int stringCount = 6;
-    private boolean useRealisticFrets = true;
+    private boolean useRealisticFrets = false;
     private Keys[] tuning = new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B};
     private ShredsheetsTheme theme;
     private float keySwipeProgress;
@@ -31,16 +33,16 @@ public class SessionModel {
     private Keys key = Keys.C;
     private boolean leftyMode = false;
     private int[] viewsToRefresh = new int[]
-            {
-                    R.id.fretboardKeySlider,
-                    R.id.fretboardFragment,
-                    R.id.selectedKeyView,
-                    R.id.fretboardTopRunner,
-                    R.id.fretboardView,
-                    R.id.fretboardBottomRunner,
-                    R.id.detailsFragment,
-                    R.id.notesAndIntervalsView
-            };
+        {
+                R.id.fretboardKeySlider,
+                R.id.fretboardFragment,
+                R.id.selectedKeyView,
+                R.id.fretboardTopRunner,
+                R.id.fretboardView,
+                R.id.fretboardBottomRunner,
+                R.id.detailsFragment,
+                R.id.notesAndIntervalsView
+        };
     private Scale scale;
     private MenuFragment menuFragment;
     private Instruments instrument = Instruments.Guitar6;
@@ -56,7 +58,7 @@ public class SessionModel {
         return tuning;
     }
 
-    public void setTuning(Keys[] tuning, Boolean invalidateViews) {
+    public void setTuning(Keys[] tuning, boolean invalidateViews) {
         this.tuning = tuning;
         if (invalidateViews) invalidateViews();
     }
@@ -214,6 +216,7 @@ public class SessionModel {
 
     public void setScale(Scale scale) {
         this.scale = scale;
+        this.scale.setMode(0);
         SessionModel.getInstance().invalidateViews();
     }
 
@@ -229,7 +232,7 @@ public class SessionModel {
         this.theme = theme;
     }
 
-    public void setStringCount(int stringCount, Boolean invalidateViews) {
+    public void setStringCount(int stringCount, boolean invalidateViews) {
         this.stringCount = stringCount;
         if (invalidateViews) invalidateViews();
     }
@@ -238,19 +241,18 @@ public class SessionModel {
         return useRealisticFrets;
     }
 
-    public void setUseRealisticFrets(boolean useRealisticFrets, Boolean invalidateViews) {
+    public void setUseRealisticFrets(boolean useRealisticFrets, boolean invalidateViews) {
         this.useRealisticFrets = useRealisticFrets;
         if (invalidateViews) invalidateViews();
     }
 
     public void setDefaults() {
         this.setKey(Keys.C);
-        this.theme.setDegreeHighlightingVector(this.theme.defaultVector);
         this.setTuning(TuningModel.getStandardTuning(), true);
         this.setStringCount(6, true);
         this.setScale(new MajorScale());
         setInstrument(Instruments.Guitar6);
-        this.setUseRealisticFrets(true, false);
+        this.setUseRealisticFrets(false, false);
     }
 
     public void setMenuFragment(MenuFragment menuFragment) {

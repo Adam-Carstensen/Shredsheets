@@ -53,10 +53,10 @@ public abstract class Scale {
 
             if (intervalCumulative < ionianCumulative)
                 for (int j = 0; j < ionianCumulative - intervalCumulative; j++)
-                    degreeName += "b";
+                    degreeName += "♭";
             else if (intervalCumulative > ionianCumulative)
                 for (int j = 0; j < intervalCumulative - ionianCumulative; j++)
-                    degreeName += "#";
+                    degreeName += "♯";
 
             degreeName += TextModule.getOrdinallySuffexedNumber(modifiedDegree + 1); //0 based array, 1 based degree naming system
 
@@ -123,15 +123,21 @@ public abstract class Scale {
     }
 
     public void setMode(int mode) {
-        if (this.mode == mode) return;
+        //if (this.mode == mode) return;
         this.mode = mode;
         this.degreeNames = null;
+
+        boolean[] modalHighlighting = getModalHighlighting(mode);
+        SessionModel.getInstance().getTheme().setDegreeHighlightingVector(modalHighlighting);
 
 //        FragmentActivity fretboardActivity = SessionModel.getInstance().fretboardActivity;
 //        if (fretboardActivity != null) fretboardActivity.getIntent().putExtra("mode", mode);
         SessionModel.getInstance().invalidateViews();
     }
 
+    protected boolean[] getModalHighlighting(int mode) {
+        return new boolean[] { true, false, true, false, true, false, true, false, false, false, false, false };
+    }
 
     public int getDegree(int i) {
         return i;

@@ -26,15 +26,16 @@ public class SelectedKeyView extends GenericView {
 
         //TODO: Refactor & document
 
-        textPaint.setTypeface(Typeface.create("sans-serif-smallcaps", Typeface.NORMAL));
+        textPaint = TextModule.getTextPaint(theme.getBorderColor(), Typeface.SANS_SERIF, true);
+
         textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setColor(theme.getBorderColor());
+
         textPaint.setStrokeJoin(Paint.Join.ROUND);
         textPaint.setStrokeMiter(10);
         textPaint.setStrokeWidth(5);
 
         RectF noteRect = RectFFactory.instance.get(0, 0, (float) getWidth() * .35f, getHeight());
-        noteRect.inset(10, 20);
+        noteRect.inset(20, 30);
 
         int[] degreeColors = theme.getDegreeColors();
         textPaint.setColor(theme.getDegreeColors()[0]);
@@ -42,8 +43,10 @@ public class SelectedKeyView extends GenericView {
 
         float scaleX = drawnNoteRect.right + drawnNoteRect.width() * .1f;
 
+        textPaint.setTypeface(Typeface.create("sans-serif-smallcaps", Typeface.NORMAL));
         textPaint.setColor(degreeColors[session.getScale().getMode()]);
-        RectF modeRect = RectFFactory.instance.get(scaleX, 10, getWidth() - 10, drawnNoteRect.top + drawnNoteRect.height() * .3f);
+        int modeInset = 10;
+        RectF modeRect = RectFFactory.instance.get(scaleX,  drawnNoteRect.top, getWidth() - modeInset, drawnNoteRect.top + drawnNoteRect.height() * .3f);
         RectF modeTextRect = TextModule.DrawText(canvas, session.getScale().getCurrentModeName(), modeRect, textPaint, Layout.Alignment.ALIGN_NORMAL, Layout.Alignment.ALIGN_NORMAL, true);
 
         RectF modeLabelRectDimensions = RectFFactory.instance.get(scaleX, modeTextRect.bottom + modeTextRect.height() * .1f, modeRect.right, modeTextRect.bottom + modeTextRect.height() * .5f);

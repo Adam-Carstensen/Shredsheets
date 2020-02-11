@@ -3,6 +3,8 @@ package revert.shredsheets.views;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -26,7 +28,7 @@ public abstract class GenericView extends View {
 
     protected Paint backgroundPaint;
     protected Paint borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    protected Paint textPaint;
+    protected TextPaint textPaint;
 
     protected final SessionModel session = SessionModel.getInstance();
     private ShredsheetsTheme theme = SessionModel.getInstance().getTheme();
@@ -47,7 +49,7 @@ public abstract class GenericView extends View {
         backgroundPaint.setStyle(Paint.Style.FILL);
         borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         borderPaint.setStyle(Paint.Style.STROKE);
-        textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setStyle(Paint.Style.STROKE);
     }
 

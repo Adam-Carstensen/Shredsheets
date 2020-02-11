@@ -131,8 +131,6 @@ public class DialogModule {
         dialog.show();
     }
 
-
-
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static <T> void ShowDialog(Context context, String title, View view, Boolean fullScreen)
     {

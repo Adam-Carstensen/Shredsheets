@@ -11,6 +11,7 @@ import revert.common.TextModule;
 import revert.factories.RectFFactory;
 import revert.shredsheets.enums.Keys;
 import revert.shredsheets.models.NotesModel;
+import revert.shredsheets.models.SessionModel;
 import revert.shredsheets.models.scales.ScaleNote;
 import revert.shredsheets.models.scales.Scale;
 import revert.shredsheets.views.GenericView;
@@ -82,7 +83,7 @@ public class NotesAndIntervalsView extends GenericView {
             textPaint.setColor(intervalColor);
 
             if (degreeNames[i % intervals.length] != null && degreeNames[i % intervals.length] != "") {
-                RectF drawnRect = TextModule.DrawText(canvas, degreeNames[ i % intervals.length], degreeRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_NORMAL, false);
+                RectF drawnRect = TextModule.DrawText(canvas, degreeNames[ i % intervals.length], degreeRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, false);
                 RectFFactory.instance.put(drawnRect);
             }
             RectFFactory.instance.put(degreeRect);
@@ -102,19 +103,37 @@ public class NotesAndIntervalsView extends GenericView {
             float updatedX = intervalX + (i - skippedIntervals) * intervalWidth;
             RectF intervalRect = RectFFactory.instance.get(updatedX, intervalY, updatedX + intervalWidth, intervalY + intervalHeight);
             intervalRect.inset(5, 5);
-            RectF drawnRect = TextModule.DrawText(canvas, intervalNames[i], intervalRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_OPPOSITE, false);
+            RectF drawnRect = TextModule.DrawText(canvas, intervalNames[i], intervalRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, false);
             RectFFactory.instance.put(intervalRect);
             RectFFactory.instance.put(drawnRect);
         }
     }
 
     private void DrawNotes(Canvas canvas, int[] degreeColors, ScaleNote[] cleanScaleNotes, float noteHeight, float noteWidth, float noteY) {
+        float minTextSize = Float.MAX_VALUE;
         for (int i = 0; i <= cleanScaleNotes.length; i++) {
             ScaleNote scaleNote = cleanScaleNotes[i % cleanScaleNotes.length];
             RectF noteRect = RectFFactory.instance.get(i * noteWidth, noteY, (i + 1) * noteWidth, noteY + noteHeight);
-            textPaint.setColor(degreeColors[scaleNote.degree]);
             noteRect.inset(10, 10);
-            RectF drawnRect = TextModule.DrawText(canvas, scaleNote.name, noteRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
+            float textSize = TextModule.CalculateTextSize(scaleNote.name, textPaint, noteRect.width(), noteRect.height());
+            if (textSize < minTextSize) minTextSize = textSize;
+            RectFFactory.instance.put(noteRect);
+        }
+
+        for (int i = 0; i <= cleanScaleNotes.length; i++) {
+            ScaleNote scaleNote = cleanScaleNotes[i % cleanScaleNotes.length];
+            RectF noteRect = RectFFactory.instance.get(i * noteWidth, noteY, (i + 1) * noteWidth, noteY + noteHeight);
+            noteRect.inset(10, 10);
+            textPaint.setColor(degreeColors[scaleNote.degree]);
+            RectF drawnRect = TextModule.DrawText(canvas, scaleNote.name, noteRect.left, noteRect.top, noteRect.width(), noteRect.height(), minTextSize, textPaint,
+                    Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
+
+            if (SessionModel.getInstance().debugLayout)
+                canvas.drawRect(noteRect, borderPaint);
+
+            if (SessionModel.getInstance().debugLayout)
+                canvas.drawRect(drawnRect, borderPaint);
+
             RectFFactory.instance.put(noteRect);
             RectFFactory.instance.put(drawnRect);
         }

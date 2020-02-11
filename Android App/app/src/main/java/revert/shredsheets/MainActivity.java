@@ -131,7 +131,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onCMajorButtonClicked(View view) {
-        StartFretboardActivity(Keys.C, new MajorScale(), 0);
+        StartFretboardActivity(Keys.C_Sharp, new MajorScale(), 0);
     }
 
     public void onAMinorButtonClicked(View view) {

@@ -22,7 +22,6 @@
         <item>Harmonic Minor</item>
         <item>Melodic Minor</item>
     </string-array>
-    <string name="hello_world">Hello world!</string>
     <string name="c_major">C Major</string>
 
 </resources>

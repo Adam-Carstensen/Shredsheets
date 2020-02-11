@@ -10,10 +10,10 @@ public abstract class ShredsheetsTheme {
         return new ShredsheetsTheme[] { new DefaultTheme(), new BlueTheme() };
     }
 
-    public Boolean[] defaultVector = new Boolean[]{true, false, true, false, true, false, true, false, false, false, false, false};
+    public boolean[] defaultVector = new boolean[]{true, false, true, false, true, false, true, false, false, false, false, false};
 
-    public abstract Boolean[] getDegreeHighlightingVector();
-    public abstract void setDegreeHighlightingVector(Boolean[] values);
+    public abstract boolean[] getDegreeHighlightingVector();
+    public abstract void setDegreeHighlightingVector(boolean[] values);
 
     public abstract Paint getBorderPaint();
 

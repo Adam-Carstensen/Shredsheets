@@ -32,7 +32,7 @@ public class NotesModel {
     public static String[] WholeNotes = {"C", "D", "E", "F", "G", "A", "B"};
     public static Keys[] WholeNoteKeys = {Keys.C, Keys.D, Keys.E, Keys.F, Keys.G, Keys.A, Keys.B};
 
-    public static String[] KeySliderStrings = {"C", "#b", "D", "#b", "E", "F", "#b", "G", "#b", "A", "#b", "B"};
+    public static String[] KeySliderStrings = {"C", "♯b", "D", "♯b", "E", "F", "♯b", "G", "♯b", "A", "♯b", "B"};
     public static int[] WholeNotePositions = {0, 2, 4, 5, 7, 9, 11};
 
     private static String[][] calculatedNotesMatrix = null;
@@ -50,7 +50,7 @@ public class NotesModel {
             Keys wholeNoteKey = WholeNoteKeys[i % 7]; //7 whole notes C D E F G A B
 
             String name = wholeNoteKey.name();
-            String sharpsAndFlats = "";
+            String sharpsAndFlats;
 
             int rowPosition = wholeNoteKey.getValue();
 
@@ -58,12 +58,12 @@ public class NotesModel {
                 noteRow[rowPosition] = name;
                 sharpsAndFlats = "";
                 for (int j = 1; j < 5 & ((rowPosition - j) >= 0); j++) {
-                    sharpsAndFlats += "b";
+                    sharpsAndFlats += "♭";
                     noteRow[rowPosition - j] = name + sharpsAndFlats;
                 }
                 sharpsAndFlats = "";
                 for (int j = 1; j < 5 & ((rowPosition + j) < 24); j++) {
-                    sharpsAndFlats += "#";
+                    sharpsAndFlats += "♯";
                     noteRow[rowPosition + j] = name + sharpsAndFlats;
                 }
                 rowPosition += 12;
