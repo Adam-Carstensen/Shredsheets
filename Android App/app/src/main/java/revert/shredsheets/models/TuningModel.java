@@ -9,11 +9,11 @@ import revert.shredsheets.enums.Keys;
 
 public class TuningModel {
     public static Keys[] getStandardTuning() {
-        return new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B, Keys.F_Sharp, Keys.D, Keys.A, Keys.E, Keys.B};
+        return new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B, Keys.F_Sharp, Keys.C_Sharp, Keys.G_Sharp, Keys.D_Sharp, Keys.A_Sharp};
     }
 
     public static Keys[] getDroppedDTuning() {
-        return new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.D, Keys.B, Keys.G, Keys.D, Keys.A, Keys.D, Keys.B};
+        return new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.D, Keys.A, Keys.D, Keys.A, Keys.D, Keys.A, Keys.D};
     }
 
     public static Keys[] getNewStandardTuning() {
@@ -23,24 +23,31 @@ public class TuningModel {
     public static Keys[] getOpenCTuning() {
         return new Keys[]{Keys.E, Keys.C, Keys.G, Keys.C, Keys.G, Keys.C, Keys.E, Keys.C, Keys.G, Keys.C, Keys.G, Keys.C};
     }
+
     public static Keys[] getOpenDTuning() {
         return new Keys[]{Keys.D, Keys.A, Keys.D, Keys.F_Sharp, Keys.A, Keys.D, Keys.D, Keys.A, Keys.D, Keys.F_Sharp, Keys.A, Keys.D};
     }
+
     public static Keys[] getOpenETuning() {
         return new Keys[]{Keys.E, Keys.B, Keys.E, Keys.G_Sharp, Keys.B, Keys.E, Keys.E, Keys.B, Keys.E, Keys.G_Sharp, Keys.B, Keys.E};
     }
+
     public static Keys[] getOpenFTuning() {
         return new Keys[]{Keys.C, Keys.F, Keys.C, Keys.F, Keys.A, Keys.F, Keys.C, Keys.F, Keys.C, Keys.F, Keys.A, Keys.F};
     }
+
     public static Keys[] getOpenGTuning() {
         return new Keys[]{Keys.D, Keys.G, Keys.D, Keys.G, Keys.B, Keys.D, Keys.D, Keys.G, Keys.D, Keys.G, Keys.B, Keys.D};
     }
+
     public static Keys[] getOpenATuning() {
         return new Keys[]{Keys.E, Keys.A, Keys.C_Sharp, Keys.E, Keys.A, Keys.E, Keys.E, Keys.A, Keys.C_Sharp, Keys.E, Keys.A, Keys.E};
     }
+
     public static Keys[] getOpenBTuning() {
         return new Keys[]{Keys.B, Keys.F_Sharp, Keys.B, Keys.F_Sharp, Keys.B, Keys.D_Sharp, Keys.B, Keys.F_Sharp, Keys.B, Keys.F_Sharp, Keys.B, Keys.D_Sharp};
     }
+
     public static Keys[] getUkuleleStandardTuning() {
         return new Keys[]{Keys.E, Keys.B, Keys.A, Keys.E, Keys.C, Keys.G, Keys.E, Keys.A, Keys.G, Keys.C, Keys.E, Keys.G};
     }

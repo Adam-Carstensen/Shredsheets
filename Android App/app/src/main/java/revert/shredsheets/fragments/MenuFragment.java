@@ -278,19 +278,19 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
         switch (SessionModel.getInstance().getInstrument()) {
             case Bass4:
                 bassButton.setChecked(true);
-                bassButton.setText(Html.fromHtml("<b>Bass</b>"));
+                bassButton.setText(Html.fromHtml("<b>Bass</b>", Html.FROM_HTML_MODE_LEGACY));
 //                SessionModel.getInstance().setStringCount(4, false);
 //                SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
                 break;
             case Ukulele:
                 ukuleleButton.setChecked(true);
-                ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>"));
+                ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>", Html.FROM_HTML_MODE_LEGACY));
 //                SessionModel.getInstance().setStringCount(4, false);
 //                SessionModel.getInstance().setTuning(TuningModel.getUkuleleStandardTuning(), false);
                 break;
             case Guitar6:
                 guitarButton.setChecked(true);
-                guitarButton.setText(Html.fromHtml("<b>Guitar</b>"));
+                guitarButton.setText(Html.fromHtml("<b>Guitar</b>", Html.FROM_HTML_MODE_LEGACY));
 //                SessionModel.getInstance().setStringCount(6, false);
 //                SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
                 break;
@@ -309,27 +309,27 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
 
                 RadioButton guitarButton = menuView.findViewById(R.id.guitar6RadioButton);
                 if (guitarButton.isChecked()) {
-                    guitarButton.setText(Html.fromHtml("<b>Guitar</b>"));
+                    guitarButton.setText(Html.fromHtml("<b>Guitar</b>", Html.FROM_HTML_MODE_LEGACY));
                     session.setInstrument(Instruments.Guitar6);
                     session.setStringCount(6, false);
                     session.setTuning(TuningModel.getStandardTuning(), true);
-                } else guitarButton.setText(Html.fromHtml("Guitar"));
+                } else guitarButton.setText(Html.fromHtml("Guitar", Html.FROM_HTML_MODE_LEGACY));
 
                 RadioButton bassButton = menuView.findViewById(R.id.bass4RadioButton);
                 if (bassButton.isChecked()) {
-                    bassButton.setText(Html.fromHtml("<b>Bass</b>"));
+                    bassButton.setText(Html.fromHtml("<b>Bass</b>", Html.FROM_HTML_MODE_LEGACY));
                     session.setInstrument(Instruments.Bass4);
                     session.setStringCount(4, false);
                     session.setTuning(TuningModel.getStandardTuning(), true);
-                } else bassButton.setText(Html.fromHtml("Bass"));
+                } else bassButton.setText(Html.fromHtml("Bass", Html.FROM_HTML_MODE_LEGACY));
 
                 RadioButton ukuleleButton = menuView.findViewById(R.id.ukuleleRadioButton);
                 if (ukuleleButton.isChecked()) {
-                    ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>"));
+                    ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>", Html.FROM_HTML_MODE_LEGACY));
                     session.setInstrument(Instruments.Ukulele);
                     session.setStringCount(4, false);
                     session.setTuning(TuningModel.getUkuleleStandardTuning(), true);
-                } else ukuleleButton.setText(Html.fromHtml("Ukulele"));
+                } else ukuleleButton.setText(Html.fromHtml("Ukulele", Html.FROM_HTML_MODE_LEGACY));
 
                 ((Button)menuView.findViewById(R.id.menuStringCountButton)).setText(session.stringCount + " strings");
                 ((Button)menuView.findViewById(R.id.menuTuningButton)).setText(TuningModel.getTuningName(session.getTuning()));

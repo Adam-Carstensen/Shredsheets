@@ -31,11 +31,11 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((Button) findViewById(R.id.CMajorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>C</font><small><small><small><small> <font color='#555555'>Major</font></small></small></small></small>"));
-        ((Button) findViewById(R.id.AMinorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>A</font><small><small><small><small> <font color='#999999'>Minor</font></small></small></small></small>"));
-        ((Button) findViewById(R.id.EPentatonicMinorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>E</font><br/><small><small><small><small><small> <font color='#555555'>Pentatonic Minor</font></small></small></small></small></small>"));
-        ((Button) findViewById(R.id.FretboardNavigationButton)).setText(Html.fromHtml("<font color='#FFFFFF'>More</font><small><small><small><small><br/><font color='#555555'>Scales, Modes, & Tunings</font></small></small></small></small>"));
-        ((Button) findViewById(R.id.HelpButton)).setText(Html.fromHtml("Help<br/><small><small><small><small><font color='#999999'>Shredsheets & music theory</font></small></small></small></small>"));
+        ((Button) findViewById(R.id.CMajorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>C</font><small><small><small><small> <font color='#555555'>Major</font></small></small></small></small>", Html.FROM_HTML_MODE_LEGACY));
+        ((Button) findViewById(R.id.AMinorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>A</font><small><small><small><small> <font color='#999999'>Minor</font></small></small></small></small>", Html.FROM_HTML_MODE_LEGACY));
+        ((Button) findViewById(R.id.EPentatonicMinorButton)).setText(Html.fromHtml("<font color='#FFFFFF'>E</font><br/><small><small><small><small><small> <font color='#555555'>Pentatonic Minor</font></small></small></small></small></small>", Html.FROM_HTML_MODE_LEGACY));
+        ((Button) findViewById(R.id.FretboardNavigationButton)).setText(Html.fromHtml("<font color='#FFFFFF'>More</font><small><small><small><small><br/><font color='#555555'>Scales, Modes, & Tunings</font></small></small></small></small>", Html.FROM_HTML_MODE_LEGACY));
+        ((Button) findViewById(R.id.HelpButton)).setText(Html.fromHtml("Help<br/><small><small><small><small><font color='#999999'>Shredsheets & music theory</font></small></small></small></small>", Html.FROM_HTML_MODE_LEGACY));
 
         SessionModel.getInstance().setMainActivity(this);
 
@@ -59,27 +59,27 @@ public class MainActivity extends FragmentActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton guitarButton = findViewById(R.id.guitar6RadioButton);
                 if (guitarButton.isChecked()) {
-                    guitarButton.setText(Html.fromHtml("<b>Guitar</b>"));
+                    guitarButton.setText(Html.fromHtml("<b>Guitar</b>", Html.FROM_HTML_MODE_LEGACY));
                     SessionModel.getInstance().setInstrument(Instruments.Guitar6);
                     SessionModel.getInstance().setStringCount(6, false);
                     SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
-                } else guitarButton.setText(Html.fromHtml("Guitar"));
+                } else guitarButton.setText(Html.fromHtml("Guitar", Html.FROM_HTML_MODE_LEGACY));
 
                 RadioButton bassButton = findViewById(R.id.bass4RadioButton);
                 if (bassButton.isChecked()) {
-                    bassButton.setText(Html.fromHtml("<b>Bass</b>"));
+                    bassButton.setText(Html.fromHtml("<b>Bass</b>", Html.FROM_HTML_MODE_LEGACY));
                     SessionModel.getInstance().setInstrument(Instruments.Bass4);
                     SessionModel.getInstance().setStringCount(4, false);
                     SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
-                } else bassButton.setText(Html.fromHtml("Bass"));
+                } else bassButton.setText(Html.fromHtml("Bass", Html.FROM_HTML_MODE_LEGACY));
 
                 RadioButton ukuleleButton = findViewById(R.id.ukuleleRadioButton);
                 if (ukuleleButton.isChecked()) {
-                    ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>"));
+                    ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>", Html.FROM_HTML_MODE_LEGACY));
                     SessionModel.getInstance().setInstrument(Instruments.Ukulele);
                     SessionModel.getInstance().setStringCount(4, false);
                     SessionModel.getInstance().setTuning(TuningModel.getUkuleleStandardTuning(), false);
-                } else ukuleleButton.setText(Html.fromHtml("Ukulele"));
+                } else ukuleleButton.setText(Html.fromHtml("Ukulele", Html.FROM_HTML_MODE_LEGACY));
             }
         };
     }
@@ -87,29 +87,29 @@ public class MainActivity extends FragmentActivity {
     private void ConfigureRadioButtons() {
         SessionModel session = SessionModel.getInstance();
         RadioButton guitarButton = findViewById(R.id.guitar6RadioButton);
-        guitarButton.setText(Html.fromHtml("Guitar"));
+        guitarButton.setText(Html.fromHtml("Guitar", Html.FROM_HTML_MODE_LEGACY));
         RadioButton bassButton = findViewById(R.id.bass4RadioButton);
-        bassButton.setText(Html.fromHtml("Bass"));
+        bassButton.setText(Html.fromHtml("Bass", Html.FROM_HTML_MODE_LEGACY));
         RadioButton ukuleleButton = findViewById(R.id.ukuleleRadioButton);
-        ukuleleButton.setText(Html.fromHtml("Ukulele"));
+        ukuleleButton.setText(Html.fromHtml("Ukulele", Html.FROM_HTML_MODE_LEGACY));
         switch (SessionModel.getInstance().getInstrument()) {
             case Bass4:
                 bassButton.setChecked(true);
-                bassButton.setText(Html.fromHtml("<b>Bass</b>"));
+                bassButton.setText(Html.fromHtml("<b>Bass</b>", Html.FROM_HTML_MODE_LEGACY));
                 session.setInstrument(Instruments.Bass4);
                 session.setStringCount(4, false);
                 session.setTuning(TuningModel.getStandardTuning(), false);
                 break;
             case Ukulele:
                 ukuleleButton.setChecked(true);
-                ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>"));
+                ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>", Html.FROM_HTML_MODE_LEGACY));
                 session.setInstrument(Instruments.Ukulele);
                 session.setStringCount(4, false);
                 session.setTuning(TuningModel.getUkuleleStandardTuning(), false);
                 break;
             case Guitar6:
                 guitarButton.setChecked(true);
-                guitarButton.setText(Html.fromHtml("<b>Guitar</b>"));
+                guitarButton.setText(Html.fromHtml("<b>Guitar</b>", Html.FROM_HTML_MODE_LEGACY));
                 session.setInstrument(Instruments.Guitar6);
                 session.setStringCount(6, false);
                 session.setTuning(TuningModel.getStandardTuning(), false);
@@ -131,7 +131,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onCMajorButtonClicked(View view) {
-        StartFretboardActivity(Keys.C_Sharp, new MajorScale(), 0);
+        StartFretboardActivity(Keys.C, new MajorScale(), 0);
     }
 
     public void onAMinorButtonClicked(View view) {

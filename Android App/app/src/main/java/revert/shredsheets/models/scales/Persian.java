@@ -14,6 +14,6 @@ public class Persian extends Scale {
 
     @Override
     public String[] getModeNames() {
-        return new String[]{"Persian", "Mode 2", "Mode 3", "Mode 4", "Mode 5", "Mode 6", "Mode 7"};
+        return new String[]{"Persian", "Chromatic Dorian Inverse", "Chromatic Phrygian Inverse", "Chromatic Lydian Inverse", "Chromatic Mixolydian Inverse", "Chromatic Hypodorian Inverse", "Chromatic Hypophrygian Inverse"};
     }
 }

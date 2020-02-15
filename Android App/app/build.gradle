@@ -10,8 +10,8 @@ android {
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "revert.shredsheets"
-        versionCode 115
-        versionName "2.2.5"
+        versionCode 116
+        versionName "2.2.6"
         signingConfig signingConfigs.config
         minSdkVersion 26
         targetSdkVersion 28
