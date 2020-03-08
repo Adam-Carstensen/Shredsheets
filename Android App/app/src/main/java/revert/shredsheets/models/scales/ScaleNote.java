@@ -3,11 +3,14 @@ package revert.shredsheets.models.scales;
 public class ScaleNote {
 
     public String name;
-    public String wholeNoteName;
-    public int wholeNote;
+    public String naturalNoteName;
+    public int naturalNote;
 
+    public int scalePosition;
     public int position;
     public int degree;
     public String degreeName;
+
+    public String chordName;
 
 }

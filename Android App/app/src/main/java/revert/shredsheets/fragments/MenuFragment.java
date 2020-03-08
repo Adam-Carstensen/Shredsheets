@@ -2,11 +2,11 @@ package revert.shredsheets.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,7 +118,7 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
             @Override
             public void onClick(View v) {
                 TuningFragment tuningFragment = new TuningFragment();
-                android.support.v4.app.FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
+                FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
                 tuningFragment.show(fragmentManager, "TuningFragment");
             }
         });
@@ -127,7 +127,7 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
             @Override
             public void onClick(View v) {
                 HighlightingFragment highlightingFragment = new HighlightingFragment();
-                android.support.v4.app.FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
+                FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
                 highlightingFragment.show(fragmentManager, "HighlightingFragment");
             }
         });
@@ -145,7 +145,7 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
             @Override
             public void onClick(View v) {
                 HelpFragment helpFragment = new HelpFragment();
-                android.support.v4.app.FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
+                FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
                 helpFragment.show(fragmentManager, "HelpFragment");
             }
         });
@@ -279,20 +279,14 @@ public class MenuFragment extends FullScreenFragment implements View.OnClickList
             case Bass4:
                 bassButton.setChecked(true);
                 bassButton.setText(Html.fromHtml("<b>Bass</b>", Html.FROM_HTML_MODE_LEGACY));
-//                SessionModel.getInstance().setStringCount(4, false);
-//                SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
                 break;
             case Ukulele:
                 ukuleleButton.setChecked(true);
                 ukuleleButton.setText(Html.fromHtml("<b>Ukulele</b>", Html.FROM_HTML_MODE_LEGACY));
-//                SessionModel.getInstance().setStringCount(4, false);
-//                SessionModel.getInstance().setTuning(TuningModel.getUkuleleStandardTuning(), false);
                 break;
             case Guitar6:
                 guitarButton.setChecked(true);
                 guitarButton.setText(Html.fromHtml("<b>Guitar</b>", Html.FROM_HTML_MODE_LEGACY));
-//                SessionModel.getInstance().setStringCount(6, false);
-//                SessionModel.getInstance().setTuning(TuningModel.getStandardTuning(), false);
                 break;
             default:
                 break;

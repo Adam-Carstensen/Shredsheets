@@ -90,11 +90,11 @@ public class DefaultTheme extends ShredsheetsTheme {
     public int[] getDegreeColors() {
         return degreeColors != null ? degreeColors :
                 (degreeColors = new int[]{
-                        Color.rgb(55, 136, 203), //3788CB
-                        Color.rgb(228, 210, 242),
-                        Color.rgb(244, 218, 62), //F4DA3E
+                        Color.rgb(55, 136, 203), //80A8C9
+                        Color.rgb(211, 181, 233),
+                        Color.rgb(244, 218, 62), //3788CB
                         Color.rgb(181, 103, 245), //6AD81C
-                        Color.rgb(106, 216, 28),
+                        Color.rgb(117, 230, 4), //2943C6
                         Color.rgb(100, 44, 118), //642C76
                         Color.rgb(255, 102, 255),
                         Color.rgb(175, 225, 170),

@@ -29,30 +29,30 @@ public class NotesModel {
         return GetStandardKeyIndexByKey().get(key);
     }
 
-    public static String[] WholeNotes = {"C", "D", "E", "F", "G", "A", "B"};
-    public static Keys[] WholeNoteKeys = {Keys.C, Keys.D, Keys.E, Keys.F, Keys.G, Keys.A, Keys.B};
+    public static String[] NaturalNotes = {"C", "D", "E", "F", "G", "A", "B"};
+    public static Keys[] NaturalNoteKeys = {Keys.C, Keys.D, Keys.E, Keys.F, Keys.G, Keys.A, Keys.B};
 
     public static String[] KeySliderStrings = {"C", "♯♭", "D", "♯♭", "E", "F", "♯♭", "G", "♯♭", "A", "♯♭", "B"};
-    public static int[] WholeNotePositions = {0, 2, 4, 5, 7, 9, 11};
+    public static int[] NaturalNotePositions = {0, 2, 4, 5, 7, 9, 11};
 
     private static String[][] calculatedNotesMatrix = null;
 
     public static String[][] GetNotesMatrix() {
         if (calculatedNotesMatrix != null) return calculatedNotesMatrix;
 
-        //19 = 7 whole notes + maximum scale degree count of 12 = 7+12 = 19
+        //19 = 7 natural notes + maximum scale degree count of 12 = 7+12 = 19
         //24 = 12 notes in the octave + 12 scale degrees in the chromatic scale
         String[][] matrix = new String[19][24];
 
 
         for (int i = 0; i < matrix.length; i++) {
             String[] noteRow = new String[24];
-            Keys wholeNoteKey = WholeNoteKeys[i % 7]; //7 whole notes C D E F G A B
+            Keys naturalNoteKey = NaturalNoteKeys[i % 7]; //7 natural notes C D E F G A B
 
-            String name = wholeNoteKey.name();
+            String name = naturalNoteKey.name();
             String sharpsAndFlats;
 
-            int rowPosition = wholeNoteKey.getValue();
+            int rowPosition = naturalNoteKey.getValue();
 
             while (rowPosition < 24) {
                 noteRow[rowPosition] = name;
@@ -75,7 +75,7 @@ public class NotesModel {
     }
 
     public static ScaleNote[] GetScaleNotes(Keys key, Scale scale) {
-        int keyStartingPoint = Keys.GetWholeNotePosition(key);
+        int keyStartingPoint = Keys.GetNaturalNotePosition(key);
         int[] scaleIntervals = scale.getIntervals();
 
         ScaleNote[] scaleNotes = new ScaleNote[scaleIntervals.length];
@@ -84,38 +84,58 @@ public class NotesModel {
 
         int position = keyStartingPoint;
 
-        int wholeNoteIndex = Keys.GetWholeNoteIndex(key);
+        int naturalNoteIndex = Keys.GetNaturalNoteIndex(key);
+
+        int[] modalDegrees = scale.getModalDegrees();
+
+        //aligning intervals with degrees
+        for (int i = 0; i < modalDegrees.length - 1; i++) {
+            int degree = modalDegrees[i];
+            int interval = scaleIntervals[i];
+
+            if (degree == 0) {
+                if (interval != 0) {
+                    int nextInterval = scaleIntervals[i+1];
+                    if (nextInterval == 0) {
+                        scaleIntervals[i] = 0;
+                        scaleIntervals[i + 1] = interval;
+                    }
+                }
+            }
+        }
+
         String[] degreeNames = scale.getDegreeNames();
 
         for (int i = 0; i < scaleIntervals.length; i++) {
             int interval = scaleIntervals[i];
 
-            if (interval != 0) {
-                ScaleNote note = new ScaleNote();
-                scaleNotes[i] = note;
-
-                note.degree = scale.getDegree(i);
-                note.degreeName = degreeNames[i];
-                if (i < WholeNotes.length) {
-                    note.wholeNote = (wholeNoteIndex + i) % 7; //7 whole notes C D E F G A B
-                    note.wholeNoteName = WholeNotes[note.wholeNote];
-                } else {
-                    note.wholeNote = (wholeNoteIndex + WholeNotes.length - 1) % 7; //7 whole notes C D E F G A B
-                    note.wholeNoteName = WholeNotes[note.wholeNote];
-                }
-
-                if (note.wholeNote == 0 && i != 0) note.wholeNote = scaleIntervals.length;
-
-                note.name = notesMatrix[note.wholeNote][position];
-                //note.name = note.wholeNoteName + note.sharpsAndFlats;
-                note.position = position % 12;
+            if (modalDegrees[i] == 0) {
+                position += interval;
+                continue;
             }
 
+            ScaleNote note = new ScaleNote();
+            scaleNotes[i] = note;
+            note.scalePosition = i;
+
+            note.degree = modalDegrees[i];
+            note.degreeName = degreeNames[i];
+            note.chordName = scale.getChord(i);
+            if (i < NaturalNotes.length) {
+                note.naturalNote = (naturalNoteIndex + note.degree - 1) % 7; //7 natural notes C D E F G A B
+                note.naturalNoteName = NaturalNotes[note.naturalNote];
+            } else {
+                note.naturalNote = (naturalNoteIndex + NaturalNotes.length - 1) % 7; //7 natural notes C D E F G A B
+                note.naturalNoteName = NaturalNotes[note.naturalNote];
+            }
+
+            if (note.naturalNote == 0 && i != 0) note.naturalNote = scaleIntervals.length;
+
+            note.name = notesMatrix[note.naturalNote][position];
+            //note.name = note.naturalNoteName + note.sharpsAndFlats;
+            note.position = position % 12;
             position += interval;
         }
         return scaleNotes;
     }
-
-
 }
-

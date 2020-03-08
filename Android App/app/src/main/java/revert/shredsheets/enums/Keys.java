@@ -27,7 +27,7 @@ public enum Keys {
         return key;
     }
 
-    public static String GetWholeNoteName(Keys key) {
+    public static String GetNaturalNoteName(Keys key) {
         switch (key) {
             case C_Flat:
             case C:
@@ -62,12 +62,8 @@ public enum Keys {
         }
     }
 
-    public static int GetWholeNoteIndex(Keys key) {
+    public static int GetNaturalNoteIndex(Keys key) {
         switch (key) {
-            case C_Flat:
-            case C:
-            case C_Sharp:
-                return 0;
             case D_Flat:
             case D:
             case D_Sharp:
@@ -92,16 +88,16 @@ public enum Keys {
             case B:
             case B_Sharp:
                 return 6;
+            case C_Flat:
+            case C:
+            case C_Sharp:
             default:
                 return 0;
         }
     }
 
-    public static int GetWholeNotePosition(Keys key) {
+    public static int GetNaturalNotePosition(Keys key) {
         switch (key) {
-            case C:
-            case B_Sharp:
-                return 0;
             case C_Sharp:
             case D_Flat:
                 return 1;
@@ -131,6 +127,8 @@ public enum Keys {
             case B:
             case C_Flat:
                 return 11;
+            case C:
+            case B_Sharp:
             default:
                 return 0;
         }

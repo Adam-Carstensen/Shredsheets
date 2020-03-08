@@ -1,5 +1,6 @@
 package revert.shredsheets.views.fretboard;
 
+import androidx.fragment.app.FragmentManager;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
@@ -15,11 +16,9 @@ public class FretboardGestureListener extends GestureDetector.SimpleOnGestureLis
     }
 
     public static void ShowSettings() {
-        //if (SessionModel.getInstance().getMenuFragment() != null) return;
-
         MenuFragment menuFragment = new MenuFragment();
         SessionModel.getInstance().setMenuFragment(menuFragment);
-        android.support.v4.app.FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
+        FragmentManager fragmentManager = SessionModel.getInstance().currentActivity.getSupportFragmentManager();
         menuFragment.show(fragmentManager, "Shredsheets Settings");
     }
 

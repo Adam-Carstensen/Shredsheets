@@ -2,7 +2,7 @@ package revert.shredsheets;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -16,7 +16,7 @@ import revert.shredsheets.fragments.HelpFragment;
 import revert.shredsheets.models.SessionModel;
 import revert.shredsheets.models.TuningModel;
 import revert.shredsheets.models.scales.MajorScale;
-import revert.shredsheets.models.scales.PentatonicMinor;
+import revert.shredsheets.models.scales.Pentatonic;
 import revert.shredsheets.models.scales.Scale;
 
 public class MainActivity extends FragmentActivity {
@@ -139,7 +139,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void onEPentatonicMinorButtonClicked(View view) {
-        StartFretboardActivity(Keys.E, new PentatonicMinor(), 0);
+        StartFretboardActivity(Keys.E, new Pentatonic(), 0);
     }
 
     private void StartFretboardActivity(Keys key, Scale scale, int mode) {

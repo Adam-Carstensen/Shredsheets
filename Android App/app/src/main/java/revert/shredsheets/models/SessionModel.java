@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 
@@ -14,7 +14,7 @@ import revert.shredsheets.enums.Keys;
 import revert.shredsheets.fragments.MenuFragment;
 import revert.shredsheets.models.scales.MajorScale;
 import revert.shredsheets.models.scales.Scale;
-import revert.shredsheets.models.themes.BlueTheme;
+import revert.shredsheets.models.themes.DefaultTheme;
 import revert.shredsheets.models.themes.ShredsheetsTheme;
 
 public class SessionModel {
@@ -26,7 +26,7 @@ public class SessionModel {
     public boolean openSettings = false;
     public int stringCount = 6;
     private boolean useRealisticFrets = false;
-    private Keys[] tuning = new Keys[]{Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B, Keys.G, Keys.D, Keys.A, Keys.E, Keys.B};
+    private Keys[] tuning = TuningModel.getStandardTuning();
     private ShredsheetsTheme theme;
     private float keySwipeProgress;
     private float modeSwipeProgress;
@@ -225,7 +225,7 @@ public class SessionModel {
     }
 
     public ShredsheetsTheme getTheme() {
-        return theme != null ? theme : (theme = new BlueTheme());
+        return theme != null ? theme : (theme = new DefaultTheme());
     }
 
     public void setTheme(ShredsheetsTheme theme) {
@@ -256,6 +256,7 @@ public class SessionModel {
     }
 
     public void setMenuFragment(MenuFragment menuFragment) {
+        if (this.menuFragment != null) return;
         this.menuFragment = menuFragment;
     }
 

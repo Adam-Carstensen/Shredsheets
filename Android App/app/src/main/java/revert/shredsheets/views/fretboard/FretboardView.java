@@ -52,6 +52,7 @@ public class FretboardView extends GenericView {
         double[] fretSpacing = FretSpacingModel.GetFretSpacing(fretCount, this.getWidth());
 
         boolean[] degreeHighlightingVector = theme.getDegreeHighlightingVector();
+
         int[] degreeColors = theme.getDegreeColors();
 
         float fretHeight = (float) this.getHeight() / (float) session.stringCount;
@@ -75,8 +76,8 @@ public class FretboardView extends GenericView {
                 ScaleNote note = scaleNotesByPosition.get(fretNote);
 
                 int highlightingColor;
-                if (note != null && degreeHighlightingVector[note.degree]) //should the degree be highlighted
-                    highlightingColor = degreeColors[note.degree]; //if so, give it the appropriate color
+                if (note != null && degreeHighlightingVector[note.scalePosition]) //should the degree be highlighted
+                    highlightingColor = degreeColors[note.degree - 1]; //if so, give it the appropriate color
                 else
                     highlightingColor = theme.getBaseFretColor(fretNumber);
 

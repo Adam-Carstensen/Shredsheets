@@ -14,6 +14,24 @@ public class MelodicMinor extends Scale {
 
     @Override
     public String[] getModeNames() {
-        return new String[]{"Jazz Minor", "Dorian b9", "Lydian Augmented", "Lydian Dominant", "Mixolydian b6", "SemiLocrian", "SuperLocrian"};
+        return new String[]{"Jazz Minor", "Dorian ♭9", "Lydian Augmented", "Lydian Dominant", "Mixolydian ♭6", "SemiLocrian", "SuperLocrian"};
+    }
+
+    @Override
+    public int[][] getDegrees() {
+        return new int[][] {
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 1, 2, 3, 4, 5, 6, 7 }
+        };
+    }
+
+    @Override
+    public String[] getChords() {
+        return new String[] { "mΔ7", "m7", "M7 ♭5", "7", "7", "m7 ♭5", "m7 ♭5" };
     }
 }

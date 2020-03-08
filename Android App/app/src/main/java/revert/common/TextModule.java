@@ -26,7 +26,7 @@ public class TextModule {
     public static float CalculateTextSize(String text, Paint paint, float maxWidth, float maxHeight) {
         float textSize = paint.getTextSize();
         if (textSize < 10) paint.setTextSize(textSize = 10);
-        if (text.length() == 0 || text.equals("")) return 0f;
+        if (text.length() == 0 || text.trim().equals("")) return 0f;
         float textWidth;
         float textHeight;
         Rect bounds = new Rect();

@@ -26,9 +26,9 @@ public class NotesAndIntervalsView extends GenericView {
     protected void onDraw(Canvas canvas) {
         Scale scale = session.getScale();
         Keys key = session.getKey();
-        int[] intervals = scale.getIntervals();
+        //int[] intervals = scale.getIntervals();
         String[] intervalNames = scale.getIntervalNames();
-        String[] degreeNames = scale.getDegreeNames();
+        //String[] degreeNames = scale.getDegreeNames();
         ScaleNote[] scaleNotes = NotesModel.GetScaleNotes(key, scale);
         int[] degreeColors = session.getTheme().getDegreeColors();
 
@@ -38,8 +38,7 @@ public class NotesAndIntervalsView extends GenericView {
 
         ScaleNote[] cleanScaleNotes = new ScaleNote[scaleNoteCount];
         int skippedCount = 0;
-        for (int i = 0; i < scaleNotes.length; i++)
-        {
+        for (int i = 0; i < scaleNotes.length; i++) {
             if (scaleNotes[i] == null) skippedCount++;
             else cleanScaleNotes[i - skippedCount] = scaleNotes[i];
         }
@@ -47,53 +46,34 @@ public class NotesAndIntervalsView extends GenericView {
         int height = this.getHeight();
         int width = this.getWidth();
 
-        float noteHeight = height * .55f;
-        float noteWidth = (float)width / (float)(scaleNoteCount + 1); //C-B, but we'd add another C
+        float noteHeight = height * .35f;
+        float noteWidth = (float) width / (float) (scaleNoteCount + 1); //C-B, but we'd add another C
 
-        float intervalHeight = height * .25f;
+        float intervalHeight = height * .2f;
         float intervalWidth = noteWidth;
 
         float degreeHeight = height * .2f;
         float degreeWidth = noteWidth;
 
+        float chordHeight = height * .25f;
+        float chordWidth = noteWidth;
+
         float intervalX = noteWidth / 2f;
         float intervalY = 5f;
         float noteY = intervalHeight;
-        float degreeY = intervalHeight + noteHeight;
+        float chordY = intervalHeight + noteHeight;
+        float degreeY = intervalHeight + noteHeight + chordHeight;
 
-        DrawNotes(canvas, degreeColors, cleanScaleNotes, noteHeight, noteWidth, noteY);
         DrawIntervals(canvas, intervalNames, intervalHeight, intervalWidth, intervalX, intervalY);
-        DrawDegreeNames(canvas, intervals, degreeNames, degreeColors, degreeHeight, degreeWidth, degreeY);
+        DrawNotes(canvas, cleanScaleNotes, degreeColors, noteHeight, noteWidth, noteY);
+        DrawChords(canvas, cleanScaleNotes, degreeColors, chordHeight, chordWidth, chordY);
+        DrawDegreeNames(canvas, cleanScaleNotes, degreeColors, degreeHeight, degreeWidth, degreeY);
     }
 
-    private void DrawDegreeNames(Canvas canvas, int[] intervals, String[] degreeNames, int[] degreeColors, float degreeHeight, float degreeWidth, float degreeY) {
-        int skippedIntervals = 0;
-        for (int i = 0; i <= degreeNames.length; i++)
-        {
-            if (intervals[i % intervals.length] == 0) {
-                skippedIntervals++;
-                continue;
-            }
-
-            float degreeX = (i - skippedIntervals) * degreeWidth;
-            RectF degreeRect = RectFFactory.instance.get(degreeX, degreeY, degreeX + degreeWidth, degreeY + degreeHeight);
-            degreeRect.inset(5, 5);
-
-            int intervalColor = degreeColors[session.getScale().getDegree(i % intervals.length)];
-            textPaint.setColor(intervalColor);
-
-            if (degreeNames[i % intervals.length] != null && degreeNames[i % intervals.length] != "") {
-                RectF drawnRect = TextModule.DrawText(canvas, degreeNames[ i % intervals.length], degreeRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, false);
-                RectFFactory.instance.put(drawnRect);
-            }
-            RectFFactory.instance.put(degreeRect);
-        }
-    }
 
     private void DrawIntervals(Canvas canvas, String[] intervalNames, float intervalHeight, float intervalWidth, float intervalX, float intervalY) {
         int skippedIntervals = 0;
-        for (int i = 0; i < intervalNames.length; i++)
-        {
+        for (int i = 0; i < intervalNames.length; i++) {
             if (intervalNames[i] == "" || intervalNames[i].equals("0")) {
                 skippedIntervals++;
                 continue;
@@ -109,10 +89,10 @@ public class NotesAndIntervalsView extends GenericView {
         }
     }
 
-    private void DrawNotes(Canvas canvas, int[] degreeColors, ScaleNote[] cleanScaleNotes, float noteHeight, float noteWidth, float noteY) {
+    private void DrawNotes(Canvas canvas, ScaleNote[] scaleNotes, int[] degreeColors, float noteHeight, float noteWidth, float noteY) {
         float minTextSize = Float.MAX_VALUE;
-        for (int i = 0; i <= cleanScaleNotes.length; i++) {
-            ScaleNote scaleNote = cleanScaleNotes[i % cleanScaleNotes.length];
+        for (int i = 0; i <= scaleNotes.length; i++) {
+            ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
             RectF noteRect = RectFFactory.instance.get(i * noteWidth, noteY, (i + 1) * noteWidth, noteY + noteHeight);
             noteRect.inset(10, 10);
             float textSize = TextModule.CalculateTextSize(scaleNote.name, textPaint, noteRect.width(), noteRect.height());
@@ -120,11 +100,11 @@ public class NotesAndIntervalsView extends GenericView {
             RectFFactory.instance.put(noteRect);
         }
 
-        for (int i = 0; i <= cleanScaleNotes.length; i++) {
-            ScaleNote scaleNote = cleanScaleNotes[i % cleanScaleNotes.length];
+        for (int i = 0; i <= scaleNotes.length; i++) {
+            ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
             RectF noteRect = RectFFactory.instance.get(i * noteWidth, noteY, (i + 1) * noteWidth, noteY + noteHeight);
             noteRect.inset(10, 10);
-            textPaint.setColor(degreeColors[scaleNote.degree]);
+            textPaint.setColor(degreeColors[scaleNote.degree - 1]);
             RectF drawnRect = TextModule.DrawText(canvas, scaleNote.name, noteRect.left, noteRect.top, noteRect.width(), noteRect.height(), minTextSize, textPaint,
                     Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
 
@@ -136,6 +116,65 @@ public class NotesAndIntervalsView extends GenericView {
 
             RectFFactory.instance.put(noteRect);
             RectFFactory.instance.put(drawnRect);
+        }
+    }
+
+    private void DrawChords(Canvas canvas, ScaleNote[] scaleNotes, int[] degreeColors, float chordHeight, float chordWidth, float chordY) {
+        float minTextSize = Float.MAX_VALUE;
+        for (int i = 0; i < scaleNotes.length; i++) {
+            ScaleNote scaleNote = scaleNotes[i];
+            String chordName = scaleNote.name + scaleNote.chordName;
+            RectF chordRect = RectFFactory.instance.get(i * chordWidth, chordY, (i + 1) * chordWidth, chordY + chordHeight);
+            chordRect.inset(5, 5);
+            float textSize = TextModule.CalculateTextSize(chordName, textPaint, chordRect.width(), chordRect.height());
+            if (textSize < minTextSize) minTextSize = textSize;
+            RectFFactory.instance.put(chordRect);
+        }
+
+        // <= because the 1st is repeated
+        for (int i = 0; i <= scaleNotes.length; i++) {
+            ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
+            String chordName = scaleNote.name + scaleNote.chordName;
+            RectF chordRect = RectFFactory.instance.get(i * chordWidth, chordY, (i + 1) * chordWidth, chordY + chordHeight);
+            chordRect.inset(10, 10);
+            textPaint.setColor(degreeColors[scaleNote.degree - 1]);
+            RectF drawnRect = TextModule.DrawText(canvas, chordName, chordRect.left, chordRect.top, chordRect.width(), chordRect.height(), minTextSize, textPaint,
+                    Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
+
+            if (SessionModel.getInstance().debugLayout)
+                canvas.drawRect(chordRect, borderPaint);
+
+            if (SessionModel.getInstance().debugLayout)
+                canvas.drawRect(drawnRect, borderPaint);
+
+            RectFFactory.instance.put(chordRect);
+            RectFFactory.instance.put(drawnRect);
+        }
+    }
+
+    private void DrawDegreeNames(Canvas canvas, ScaleNote[] scaleNotes, int[] degreeColors, float degreeHeight, float degreeWidth, float degreeY) {
+        int skippedIntervals = 0;
+        //int[] modalDegrees = session.getScale().getModalDegrees();
+
+        for (int i = 0; i <= scaleNotes.length; i++) {
+//            if (scaleNotes[i % scaleNotes.length] == 0) {
+//                skippedIntervals++;
+//                continue;
+//            }
+
+            ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
+
+            float degreeX = (i - skippedIntervals) * degreeWidth;
+            RectF degreeRect = RectFFactory.instance.get(degreeX, degreeY, degreeX + degreeWidth, degreeY + degreeHeight);
+            degreeRect.inset(5, 5);
+
+            int intervalColor = degreeColors[scaleNote.degree - 1];
+            textPaint.setColor(intervalColor);
+
+            RectF drawnRect = TextModule.DrawText(canvas, scaleNote.degreeName, degreeRect, textPaint, Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, false);
+            RectFFactory.instance.put(drawnRect);
+
+            RectFFactory.instance.put(degreeRect);
         }
     }
 }

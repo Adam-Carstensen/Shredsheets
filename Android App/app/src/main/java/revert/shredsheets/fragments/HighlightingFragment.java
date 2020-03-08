@@ -29,14 +29,16 @@ public class HighlightingFragment extends FullScreenFragment {
 
         highlightingContainer = highlightingLayout.findViewById(R.id.highlightingColorsContainer);
 
+        int[] degrees = session.getScale().getModalDegrees();
         String[] degreeNames = session.getScale().getDegreeNames();
 
-        for (int i = 0; i < degreeNames.length; i++) {
+        for (int i = 0; i < degrees.length; i++) {
             Button button = new Button(session.currentActivity);
             button.setTag(i);
             button.setLayoutParams(new TableLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-            ColorDegreeButton(button, highlightingVector[i], degreeColors, i);
+            int degree = degrees[i];
+            ColorDegreeButton(button, highlightingVector[i], degreeColors[degree - 1]);
             button.setText(degreeNames[i]);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -170,11 +172,13 @@ public class HighlightingFragment extends FullScreenFragment {
         int[] degreeColors = session.getTheme().getDegreeColors();
         boolean[] degreeHighlightingVector = session.getTheme().getDegreeHighlightingVector();
 
+        int[] degrees = session.getScale().getModalDegrees();
+
         for (int i = 0; i < degreeHighlightingVector.length; i++)
         {
             View degreeItem = highlightingContainer.findViewWithTag(i);
             if (degreeItem == null) break;
-            ColorDegreeButton((Button)degreeItem, degreeHighlightingVector[i], degreeColors, i);
+            ColorDegreeButton((Button)degreeItem, degreeHighlightingVector[i], degreeColors[degrees[i] - 1]);
         }
         session.invalidateViews();
         if (dismiss) {
@@ -184,9 +188,9 @@ public class HighlightingFragment extends FullScreenFragment {
     }
 
 
-    private void ColorDegreeButton(Button button, boolean shouldHighlight, int[] degreeColors, int degree) {
+    private void ColorDegreeButton(Button button, boolean shouldHighlight, int degreeColors) {
         int backgroundColor = Color.LTGRAY;
-        if (shouldHighlight) backgroundColor = degreeColors[degree];
+        if (shouldHighlight) backgroundColor = degreeColors;
         button.setTextColor(ColorModule.getMaximallyContrastingColor(backgroundColor));
         button.setBackgroundColor(backgroundColor);
     }
