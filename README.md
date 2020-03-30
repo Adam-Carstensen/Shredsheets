@@ -6,17 +6,12 @@ For lessons and explanations, check out the Shredsheets YouTube channel at https
 
 Shredsheets is for understanding music theory applied to guitar, bass, ukulele, or anything with frets.  
 
-Fully dynamic and adaptive fretboard models teach scales and modes intuitively with special emphasis on harmony and understanding.
+Learn chords and voicings.
+Learn Scales and Modes.
+Alternate Tunings.
+Lefty Mode!
 
-Alternate tunings can be understood in moments; chords move up and down the neck like a seasoned jazz pro; scales instantly make sense and modes naturally follow.
-
-Shredsheets codifies years of practice and study.  Repeating patterns and irregularities which you've stored away as "cool riffs" start to make sense in a deep and persistent way.  Each user I've spoken with describes different moments of enlightenment when THEY finally "got it".  
-
-When you close Shredsheets and walk away, you'll notice you're better.  After using this application, your musical life will never be the same.  I promise.
-
-In fact I'd wager that I can teach every guitarist on the planet SOMETHING with Shredsheets.  I may not know it myself, but I'd still be able to derive it with Shredsheets!
-
-Shredsheets currently supports the following scales and modes:
+Shredsheets on Android currently supports the following scales and modes:
 
 ## Major Scale (Most of western music)
 Ionian (Major), Dorian, Phrygian, Lydian, Mixolydian, Aolian (Minor), Locrian
