@@ -7,9 +7,13 @@ For lessons and explanations, check out the Shredsheets YouTube channel at https
 Shredsheets is for understanding music theory applied to guitar, bass, ukulele, or anything with frets.  
 
 Learn chords and voicings.
+
 Learn Scales and Modes.
+
 Alternate Tunings.
+
 Lefty Mode!
+
 
 Shredsheets on Android currently supports the following scales and modes:
 
