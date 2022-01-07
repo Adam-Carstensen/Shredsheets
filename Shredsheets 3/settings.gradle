@@ -1,0 +1,2 @@
+include 'Kommon', 'Automik'
+include 'desktop', 'android', 'core'
