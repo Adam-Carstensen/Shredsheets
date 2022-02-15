@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Align
 import com.bm.BuildSiteFonts
 import com.bm.buildsite.controls.IDialogController
 import com.bm.resources.Textures
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.kotcrab.vis.ui.widget.ListView
 import space.earlygrey.shapedrawer.ShapeDrawer
 import kotlin.math.min

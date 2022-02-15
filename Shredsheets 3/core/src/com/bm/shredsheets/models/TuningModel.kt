@@ -7,7 +7,7 @@ import java.util.*
 object TuningModel {
     val standardTuning: Array<MusicKeys>
         get() = arrayOf(MusicKeys.E.setFrequency(329.63f), MusicKeys.B.setFrequency(246.94f), MusicKeys.G.setFrequency(196.00f), MusicKeys.D.setFrequency(146.83f), MusicKeys.A.setFrequency(110.00f), MusicKeys.E.setFrequency(82.41f),
-            MusicKeys.B.setFrequency(61.74f), MusicKeys.F_Sharp.setFrequency(23.12f))
+            MusicKeys.B.setFrequency(61.74f), MusicKeys.F_Sharp.setFrequency(46.25f))
     val droppedDTuning: Array<MusicKeys>
         get() = arrayOf(MusicKeys.E, MusicKeys.B, MusicKeys.G, MusicKeys.D, MusicKeys.A, MusicKeys.D, MusicKeys.A, MusicKeys.D)
     val newStandardTuning: Array<MusicKeys>

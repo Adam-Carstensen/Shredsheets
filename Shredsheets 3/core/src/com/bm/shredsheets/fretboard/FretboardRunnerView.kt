@@ -9,11 +9,10 @@ import com.bm.extensions.inset
 import com.bm.resources.Textures
 import com.bm.shredsheets.ColorModule
 import com.bm.shredsheets.RectModule
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.bm.shredsheets.models.FretSpacingModel
 import com.bm.shredsheets.models.SessionModel
 import com.bm.shredsheets.models.themes.ShredsheetsTheme
-import com.kotcrab.vis.ui.widget.VisTable
 import space.earlygrey.shapedrawer.ShapeDrawer
 
 class FretboardRunnerView : Actor() {

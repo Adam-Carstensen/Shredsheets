@@ -1,10 +1,13 @@
 package com.bm.shredsheets.models
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.audio.AudioDevice
 import com.badlogic.gdx.graphics.Color
 import com.bm.BuildSiteFonts
 import com.bm.shredsheets.enums.Instruments
 import com.bm.shredsheets.enums.MusicKeys
+import com.bm.shredsheets.fretboard.WaveForm
+import com.bm.shredsheets.fretboard.WavePool
 import com.bm.shredsheets.models.scales.MajorScale
 import com.bm.shredsheets.models.scales.Scale
 import com.bm.shredsheets.models.themes.DefaultTheme
@@ -13,6 +16,9 @@ import kotlin.math.abs
 
 class SessionModel {
 
+    var audioDevice: AudioDevice = Gdx.audio.newAudioDevice(WaveForm.sampleRate, true)
+    var bufferLengthSeconds = 1.5f
+    var wavePool = WavePool(audioDevice, bufferLengthSeconds, WaveForm.sampleRate)
 
     var debugMode = false
 

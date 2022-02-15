@@ -1,2 +1,2 @@
-include 'Kommon', 'Automik'
+include 'Kommon'
 include 'desktop', 'android', 'core'

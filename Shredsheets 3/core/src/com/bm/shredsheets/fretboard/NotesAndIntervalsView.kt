@@ -4,20 +4,72 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.scenes.scene2d.Actor
+import com.badlogic.gdx.scenes.scene2d.InputEvent
+import com.badlogic.gdx.scenes.scene2d.InputListener
+import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.Align
 import com.bm.extensions.inset
 import com.bm.shredsheets.ColorModule
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.bm.shredsheets.enums.MusicKeys
 import com.bm.shredsheets.models.NotesModel
 import com.bm.shredsheets.models.SessionModel
+import com.bm.shredsheets.models.TuningModel
 import com.bm.shredsheets.models.scales.Scale
 import com.bm.shredsheets.models.scales.ScaleNote
+import com.kotcrab.vis.ui.widget.VisTable
 
 class NotesAndIntervalsView : Actor() {
 
     init {
+        touchable = Touchable.enabled
+        var view = this
+        addListener(object : InputListener() {
+            override fun touchUp(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int) {
+                super.touchUp(event, x, y, pointer, button)
 
+                var session = SessionModel.instance
+                val scale: Scale = session.scale
+                val key: MusicKeys = session.key
+
+                val scaleNotes: Array<ScaleNote?> = NotesModel.GetScaleNotes(key, scale)
+                var scaleNoteCount = 0
+                for (note in scaleNotes) if (note != null) scaleNoteCount++
+
+                val noteWidth = width / (scaleNoteCount + 1).toFloat() //C-B, but we'd add another C
+
+                val noteHeight = height * .4f
+                val intervalHeight = height * .2f
+                val chordHeight = height * .25f
+                val chordY = intervalHeight + noteHeight
+
+
+                var i  = 0
+                // <= because the 1st is repeated
+                for (index in 0..scaleNotes.size) {
+                    val scaleNote = scaleNotes[index % scaleNotes.size] ?: continue
+                    val chordName = scaleNote.name + scaleNote.chordName
+
+                    chordRectangle.set(view.x + i * noteWidth, view.y + chordY, noteWidth, chordHeight)
+                    if (chordRectangle.contains(view.x + x, view.y + y)) {
+
+
+
+                        //var seventhChord = WaveForm.getSeventhChordWave(SessionModel.instance.bufferLengthSeconds, )
+
+                        println(scaleNote.chordName)
+
+                    }
+                    i++
+                }
+
+
+            }
+
+            override fun touchDown(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int): Boolean {
+                return true
+            }
+        })
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
@@ -55,6 +107,9 @@ class NotesAndIntervalsView : Actor() {
         DrawNotes(batch!!, scaleNotes, SessionModel.instance.theme.degreeColors, noteHeight, noteWidth, intervalHeight)
         DrawChords(batch!!, scaleNotes, SessionModel.instance.theme.degreeColors, chordHeight, noteWidth, chordY)
         DrawDegreeNames(batch!!, scaleNotes, SessionModel.instance.theme.degreeColors, degreeHeight, noteWidth, degreeY)
+
+
+
     }
 
     val intervalRectangle = Rectangle()
@@ -100,19 +155,19 @@ class NotesAndIntervalsView : Actor() {
 
     val chordRectangle = Rectangle()
     private fun DrawChords(batch: Batch, scaleNotes: Array<ScaleNote?>, degreeColors: Array<Color>, chordHeight: Float, chordWidth: Float, chordY: Float) {
-        var minTextSize = Float.MAX_VALUE
-        var i = 0
-        for (index in scaleNotes.indices) {
-            val scaleNote = scaleNotes[index] ?: continue
-            val chordName = scaleNote.name + scaleNote.chordName
-            chordRectangle.set(this.x + i * chordWidth,this.y + chordY, chordWidth, chordHeight)
-            chordRectangle.inset(5f, 5f)
-            val textSize = TextModule.CalculateTextSize(chordName, SessionModel.instance.drawFont, chordRectangle.width, chordRectangle.height)
-            if (textSize < minTextSize) minTextSize = textSize
-            i++
-        }
+//        var minTextSize = Float.MAX_VALUE
+//        var i = 0
+//        for (index in scaleNotes.indices) {
+//            val scaleNote = scaleNotes[index] ?: continue
+//            val chordName = scaleNote.name + scaleNote.chordName
+//            chordRectangle.set(this.x + i * chordWidth,this.y + chordY, chordWidth, chordHeight)
+//            chordRectangle.inset(5f, 5f)
+//            val textSize = TextModule.CalculateTextSize(chordName, SessionModel.instance.drawFont, chordRectangle.width, chordRectangle.height)
+//            if (textSize < minTextSize) minTextSize = textSize
+//            i++
+//        }
 
-        i  = 0
+        var i  = 0
         // <= because the 1st is repeated
         for (index in 0..scaleNotes.size) {
             val scaleNote = scaleNotes[index % scaleNotes.size] ?: continue

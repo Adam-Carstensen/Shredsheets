@@ -3,13 +3,10 @@ package com.bm.shredsheets.fretboard
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.scenes.scene2d.Actor
-import com.badlogic.gdx.scenes.scene2d.InputEvent
-import com.badlogic.gdx.scenes.scene2d.InputListener
 import com.badlogic.gdx.utils.Align
 import com.bm.extensions.inset
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.bm.shredsheets.models.SessionModel
-import com.kotcrab.vis.ui.widget.VisTable
 
 class SelectedKeyView : Actor() {
 

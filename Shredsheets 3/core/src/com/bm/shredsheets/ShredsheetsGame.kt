@@ -8,6 +8,7 @@ class ShredsheetsGame : Application() {
 
     init {
         Instance = this
+        //setScene(ShredsheetsTitleScene())
         setScene(ScaleScene())
     }
 

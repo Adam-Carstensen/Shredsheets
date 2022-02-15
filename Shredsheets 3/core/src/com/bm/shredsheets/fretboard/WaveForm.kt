@@ -9,9 +9,7 @@ import kotlin.math.roundToInt
 import kotlin.math.sin
 
 object WaveForm {
-
     var sampleRate: Int = 44100
-
 
     fun getSilence(seconds: Float): ShortArray {
         return ShortArray((sampleRate * seconds).toInt())

@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Touchable
 import com.badlogic.gdx.utils.Align
 import com.bm.extensions.inset
 import com.bm.shredsheets.RectModule
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.bm.shredsheets.enums.MusicKeys
 import com.bm.shredsheets.models.FretSpacingModel
 import com.bm.shredsheets.models.NotesModel
@@ -24,16 +24,6 @@ import kotlin.math.pow
 
 class FretboardView : Actor() {
 
-    var audioDevice: AudioDevice = Gdx.audio.newAudioDevice(WaveForm.sampleRate, true)
-    var bufferLengthSeconds = 1f
-    var wave: ShortArray = ShortArray((WaveForm.sampleRate * bufferLengthSeconds).toInt())
-    var wavePool = WavePool(audioDevice, bufferLengthSeconds, WaveForm.sampleRate, 10)
-
-    override fun remove(): Boolean {
-        audioDevice.dispose()
-        return super.remove()
-    }
-
     var lastTouched = Pair(0, 0)
 
     init {
@@ -44,7 +34,6 @@ class FretboardView : Actor() {
                 //Dampening Pedal
                 //wavePool.clearPool()
                 lastTouched = Pair(-1, -1)
-
             }
 
             override fun touchDown(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int): Boolean {
@@ -62,17 +51,12 @@ class FretboardView : Actor() {
                 var thread = thread {
                     //var frequency = MusicKeys.getFrequency(note.scalePosition)
 
-                    var newWave: ShortArray = WaveForm.getGuitarWave(bufferLengthSeconds, newFrequency, .5f)
+                    var newWave: ShortArray = WaveForm.getGuitarWave(SessionModel.instance.bufferLengthSeconds, newFrequency, .5f)
                     //var newWave: ShortArray = WaveForm.getGuitarWave(bufferLengthSeconds, frequency, .5f)
                     //var newWave: ShortArray = WaveForm.getSeventhGuitarChordWave(bufferLengthSeconds, frequency, note.scalePosition, .5f)
-                    wavePool.queueWaveForm(newWave)
-                    wavePool.playWavePool()
+                    SessionModel.instance.wavePool.queueWaveForm(newWave)
+                    SessionModel.instance.wavePool.playWavePool()
                 }
-
-                //Determine if note is playing
-                // - yes, keep playing
-                // - no, start playing
-
 
                 return true
             }
@@ -88,8 +72,6 @@ class FretboardView : Actor() {
                 lastTouched = touchPair
 
                 touchDown(event, x, y, pointer, 0)
-
-
             }
 
             fun getFretAtCoordinate(x: Float, y: Float): Pair<Int, Int> {

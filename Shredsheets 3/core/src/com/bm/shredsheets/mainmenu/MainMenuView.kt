@@ -1,5 +1,6 @@
 package com.bm.shredsheets.mainmenu
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.ui.Label
@@ -29,7 +30,7 @@ class MainMenuView(var dialogController: IDialogController) : VisTable(true) {
 
     var sixStringGuitarButton: BsToggleButton
 
-    var menuWidth = 500f
+    var menuWidth = Gdx.graphics.width / 2f
     var menuHeight = 500f
 
     var selectedKey: MusicKeys = SessionModel.instance.key
@@ -138,6 +139,8 @@ class MainMenuView(var dialogController: IDialogController) : VisTable(true) {
         })
 
         add(bassStringsLayout).width(menuWidth).height(50f).align(Align.left)
+
+
     }
 
     val labelPadding = 10f

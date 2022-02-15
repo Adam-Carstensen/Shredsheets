@@ -1,6 +1,6 @@
 package com.bm.shredsheets.models.scales
 
-import com.bm.shredsheets.TextModule
+import com.bm.TextModule
 import com.bm.shredsheets.models.SessionModel
 
 abstract class Scale {

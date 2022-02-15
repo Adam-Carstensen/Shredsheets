@@ -1,6 +1,7 @@
 package com.bm.shredsheets.scenes
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.GL30
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.scenes.scene2d.InputEvent
@@ -66,6 +67,7 @@ class ScaleScene : Scene(), IDialogController {
         var notesAndIntervalsView = NotesAndIntervalsView()
         table.add(notesAndIntervalsView).width(stage.width * .49f).height(stage.height * .3f).colspan(1)
 
+
         var menuButton = MenuButton()
         table.add(menuButton).width(stage.width * .06f).height(stage.height * .3f).colspan(1)
 
@@ -73,6 +75,7 @@ class ScaleScene : Scene(), IDialogController {
 
         menuButton.addListener(object : InputListener() {
             override fun touchUp(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int) {
+                super.touchUp(event, x, y, pointer, button)
                 if (menuButtonDown) {
 
                     println("Launching menu")

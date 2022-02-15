@@ -1,4 +1,4 @@
-package com.bm.shredsheets
+package com.bm
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Batch
@@ -7,10 +7,7 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.utils.Align
-import com.bm.BuildSiteFonts
-import com.bm.UserInterface
 import com.bm.maths.extensions.floor
-import kotlin.math.max
 import kotlin.math.min
 
 
