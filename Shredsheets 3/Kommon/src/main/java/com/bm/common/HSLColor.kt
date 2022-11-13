@@ -2,6 +2,8 @@ package com.bm.common
 
 
 import com.badlogic.gdx.graphics.Color
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * The HSLColor class provides methods to manipulate HSL (Hue, Saturation
@@ -238,13 +240,13 @@ class HSLColor {
 
             val p = 2 * luminance - q
 
-            var r = Math.max(0f, HueToRGB(p, q, hue + 1.0f / 3.0f))
-            var g = Math.max(0f, HueToRGB(p, q, hue))
-            var b = Math.max(0f, HueToRGB(p, q, hue - 1.0f / 3.0f))
+            var r = max(0f, HueToRGB(p, q, hue + 1.0f / 3.0f))
+            var g = max(0f, HueToRGB(p, q, hue))
+            var b = max(0f, HueToRGB(p, q, hue - 1.0f / 3.0f))
 
-            r = Math.min(r, 1.0f)
-            g = Math.min(g, 1.0f)
-            b = Math.min(b, 1.0f)
+            r = min(r, 1.0f)
+            g = min(g, 1.0f)
+            b = min(b, 1.0f)
 
             color.set(r, g, b, alpha)
             return color

@@ -6,12 +6,12 @@ class Size(
 )  {
 
     override fun hashCode(): Int {
-        return width!!.hashCode() xor height!!.hashCode()
+        return width.hashCode() xor height.hashCode()
     }
 
     override fun equals(other: Any?): Boolean {
         return if (other is Size) {
-            width === other.width && height === other.height
+            width == other.width && height == other.height
         } else super.equals(other)
     }
 }

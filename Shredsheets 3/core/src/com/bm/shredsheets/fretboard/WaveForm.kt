@@ -26,7 +26,7 @@ object WaveForm {
 
         var segmentProgress: Float
         for (i in wave.indices) {
-            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat;
+            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat
             wave[i] = interpolation.apply(Short.MIN_VALUE.toFloat() * gain, Short.MAX_VALUE.toFloat() * gain, segmentProgress).toInt().toShort()
         }
         return wave
@@ -39,7 +39,7 @@ object WaveForm {
 
         var segmentProgress: Float
         for (i in wave.indices) {
-            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat;
+            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat
             wave[i] = (sin(segmentProgress * Math.PI * 2f) * Short.MAX_VALUE * gain).toInt().toShort()
         }
         return wave
@@ -53,28 +53,27 @@ object WaveForm {
 
         var segmentProgress: Float
         for (i in wave.indices) {
-            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat;
+            segmentProgress = (i % segmentsPerRepeat) / segmentsPerRepeat
             wave[i] = (sin(segmentProgress * Math.PI * 2f).roundToInt() * Short.MAX_VALUE * gain).toInt().toShort()
         }
         return wave
     }
 
-    var initialWaveImpact = .5f
-    var lowerWaveInpact = .3f
-    var evenLowerWaveImpact = .1f
-    var higherWaveImpact = .3f
-    var evenHigherWaveImpact = .1f
+    var initialWaveImpact = .6f
+    var lowerWaveImpact = .1f
+    var evenLowerWaveImpact = .03f
+    var higherWaveImpact = .1f
+    var evenHigherWaveImpact = .03f
 
     fun getGuitarWave(seconds: Float, frequency: Float, gain: Float): ShortArray {
 
         var sinWave = getReinforcedSinWave(seconds, frequency, gain)
-        var squareWave = getReinforcedSquareWave(seconds, frequency, gain * .3f).vary(.01f)
-        var sawWave = getReinforcedSawWave(seconds, frequency, gain * .2f).vary(.01f)
+        var squareWave = getReinforcedSquareWave(seconds, frequency, gain * .3f).vary(.1f)
+        var sawWave = getReinforcedSawWave(seconds, frequency, gain * .2f).vary(.1f)
 
-        var minorThirdWave = getReinforcedSinWave(seconds, frequency * 2f.pow(3/12f), gain * .1f)
-        var thirdWave = getReinforcedSinWave(seconds, frequency * 2f.pow(4/12f), gain * .3f)
-
-        var fifthWave = getReinforcedSinWave(seconds, frequency * 2f.pow(7/12f), gain * .2f)
+        var minorThirdWave = getReinforcedSinWave(seconds, frequency * 2f.pow(3/12f), gain * .05f)
+        var thirdWave = getReinforcedSinWave(seconds, frequency * 2f.pow(4/12f), gain * .15f)
+        var fifthWave = getReinforcedSinWave(seconds, frequency * 2f.pow(7/12f), gain * .1f)
 
         var intWave = IntArray(sinWave.size)
         for (i in intWave.indices) {
@@ -98,7 +97,7 @@ object WaveForm {
     fun getReinforcedSquareWave(seconds: Float, frequency: Float, gain: Float): ShortArray {
         var wave = getSquareWave(seconds, frequency, gain * initialWaveImpact)
 
-        var lowerWave = getSquareWave(seconds, frequency * .5f, gain * lowerWaveInpact)
+        var lowerWave = getSquareWave(seconds, frequency * .5f, gain * lowerWaveImpact)
         var evenLowerWave = getSquareWave(seconds, frequency * .25f, gain * evenLowerWaveImpact)
         var higherWave = getSquareWave(seconds, frequency * 2f, gain * higherWaveImpact)
         var evenHigherWave = getSquareWave(seconds, frequency * 4f, gain * evenHigherWaveImpact)
@@ -115,7 +114,7 @@ object WaveForm {
     fun getReinforcedSinWave(seconds: Float, frequency: Float, gain: Float): ShortArray {
         var wave = getSinWave(seconds, frequency, gain * initialWaveImpact)
 
-        var lowerWave = getSinWave(seconds, frequency * .5f, gain * lowerWaveInpact)
+        var lowerWave = getSinWave(seconds, frequency * .5f, gain * lowerWaveImpact)
         var evenLowerWave = getSinWave(seconds, frequency * .25f, gain * evenLowerWaveImpact)
         var higherWave = getSinWave(seconds, frequency * 2f, gain * higherWaveImpact)
         var evenHigherWave = getSinWave(seconds, frequency * 4f, gain * evenHigherWaveImpact)
@@ -133,7 +132,7 @@ object WaveForm {
         var wave = getSawWave(seconds, frequency, gain * initialWaveImpact)
 
         var lowerWave = getSawWave(seconds, frequency * .5f, gain * evenLowerWaveImpact)
-        var evenLowerWave = getSawWave(seconds, frequency * .25f, gain * lowerWaveInpact)
+        var evenLowerWave = getSawWave(seconds, frequency * .25f, gain * lowerWaveImpact)
         var higherWave = getSawWave(seconds, frequency * 2f, gain * higherWaveImpact)
         var evenHigherWave = getSawWave(seconds, frequency * 4f, gain * evenHigherWaveImpact)
 
@@ -159,7 +158,7 @@ object WaveForm {
     fun attackWave(wave: ShortArray): ShortArray {
         for (i in wave.indices) {
             val smoothingCoefficient = attackInterpolation.apply(i / wave.size.toFloat())
-            wave[i] = (wave[i] * smoothingCoefficient).toShort()
+            wave[i] = (wave[i] * smoothingCoefficient).toInt().toShort()
         }
         return wave
     }

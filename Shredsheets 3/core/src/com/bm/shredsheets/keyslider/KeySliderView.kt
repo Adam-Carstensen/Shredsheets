@@ -64,14 +64,7 @@ class KeySliderView : Actor() {
             } else {
                 TextModule.DrawText(batch, sliderRectangle, keyValue, BuildSiteFonts.FreeSerif_Unicode, Align.center, Color.BLACK)
             }
-
-
-
-
-
         }
-
-
     }
 
 

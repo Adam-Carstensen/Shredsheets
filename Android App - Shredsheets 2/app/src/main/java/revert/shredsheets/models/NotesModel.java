@@ -129,7 +129,7 @@ public class NotesModel {
                 note.naturalNoteName = NaturalNotes[note.naturalNote];
             }
 
-            if (note.naturalNote == 0 && i != 0) note.naturalNote = scaleIntervals.length;
+//            if (note.naturalNote == 0 && i != 0) note.naturalNote = scaleIntervals.length;
 
             note.name = notesMatrix[note.naturalNote][position];
             //note.name = note.naturalNoteName + note.sharpsAndFlats;

@@ -145,8 +145,8 @@ public class MainActivity extends FragmentActivity {
     private void StartFretboardActivity(Keys key, Scale scale, int mode) {
         SessionModel session = SessionModel.getInstance();
         session.setKey(key);
-        scale.setMode(mode);
         session.setScale(scale);
+        scale.setMode(mode);
         Intent intent = new Intent(this, FretboardActivity.class);
         startActivity(intent);
     }

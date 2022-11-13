@@ -22,6 +22,8 @@ public class NotesAndIntervalsView extends GenericView {
         super(context, attrs);
     }
 
+    private int lastScaleNoteCount = 0;
+    private ScaleNote[] cleanScaleNotes;
     @Override
     protected void onDraw(Canvas canvas) {
         Scale scale = session.getScale();
@@ -35,6 +37,8 @@ public class NotesAndIntervalsView extends GenericView {
         int scaleNoteCount = 0;
         for (ScaleNote note : scaleNotes)
             if (note != null) scaleNoteCount++;
+
+
 
         ScaleNote[] cleanScaleNotes = new ScaleNote[scaleNoteCount];
         int skippedCount = 0;
@@ -100,6 +104,8 @@ public class NotesAndIntervalsView extends GenericView {
             RectFFactory.instance.put(noteRect);
         }
 
+        SessionModel sessionModel = SessionModel.getInstance();
+
         for (int i = 0; i <= scaleNotes.length; i++) {
             ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
             RectF noteRect = RectFFactory.instance.get(i * noteWidth, noteY, (i + 1) * noteWidth, noteY + noteHeight);
@@ -108,10 +114,10 @@ public class NotesAndIntervalsView extends GenericView {
             RectF drawnRect = TextModule.DrawText(canvas, scaleNote.name, noteRect.left, noteRect.top, noteRect.width(), noteRect.height(), minTextSize, textPaint,
                     Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
 
-            if (SessionModel.getInstance().debugLayout)
+            if (sessionModel.debugLayout)
                 canvas.drawRect(noteRect, borderPaint);
 
-            if (SessionModel.getInstance().debugLayout)
+            if (sessionModel.debugLayout)
                 canvas.drawRect(drawnRect, borderPaint);
 
             RectFFactory.instance.put(noteRect);
@@ -131,6 +137,8 @@ public class NotesAndIntervalsView extends GenericView {
             RectFFactory.instance.put(chordRect);
         }
 
+        SessionModel sessionModel = SessionModel.getInstance();
+
         // <= because the 1st is repeated
         for (int i = 0; i <= scaleNotes.length; i++) {
             ScaleNote scaleNote = scaleNotes[i % scaleNotes.length];
@@ -141,10 +149,10 @@ public class NotesAndIntervalsView extends GenericView {
             RectF drawnRect = TextModule.DrawText(canvas, chordName, chordRect.left, chordRect.top, chordRect.width(), chordRect.height(), minTextSize, textPaint,
                     Layout.Alignment.ALIGN_CENTER, Layout.Alignment.ALIGN_CENTER, true);
 
-            if (SessionModel.getInstance().debugLayout)
+            if (sessionModel.debugLayout)
                 canvas.drawRect(chordRect, borderPaint);
 
-            if (SessionModel.getInstance().debugLayout)
+            if (sessionModel.debugLayout)
                 canvas.drawRect(drawnRect, borderPaint);
 
             RectFFactory.instance.put(chordRect);

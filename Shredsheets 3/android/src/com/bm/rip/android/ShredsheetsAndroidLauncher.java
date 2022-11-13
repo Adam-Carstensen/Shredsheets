@@ -20,3 +20,4 @@ public class ShredsheetsAndroidLauncher extends AndroidApplication {
         initialize(new ShredsheetsGame(), config);
     }
 }
+

@@ -17,18 +17,18 @@ public class MajorScale extends Scale {
         return new String[]{"Ionian (Major)", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aeolian (Minor)", "Locrian"};
     }
 
-    @Override
-    protected boolean[][] getModalHighlighting() {
-        return new boolean[][]{
-                {true, false, true, false, false, true, true},
-                {true, false, true, false, false, true, true},
-                {true, true, true, false, false, true, true},
-                {true, false, true, true, true, false, false},
-                {true, false, true, false, false, false, true},
-                {true, false, true, false, false, true, true},
-                {true, true, true, false, true, false, true}
-        };
-    }
+//    @Override
+//    protected boolean[][] getModalHighlighting() {
+//        return new boolean[][]{
+//                {true, false, true, false, true, false, true},
+//                {true, false, true, false, false, true, true},
+//                {true, true, true, false, false, true, true},
+//                {true, false, true, true, true, false, false},
+//                {true, false, true, false, false, false, true},
+//                {true, false, true, false, false, true, true},
+//                {true, true, true, false, true, false, true}
+//        };
+//    }
 
     @Override
     public int[][] getDegrees() {

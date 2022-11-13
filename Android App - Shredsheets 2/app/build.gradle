@@ -1,38 +1,38 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'shredsheets'
-        }
-    }
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdk 32
     defaultConfig {
         applicationId "revert.shredsheets"
-        versionCode 117
-        versionName "2.2.6"
-        signingConfig signingConfigs.config
+        versionCode 118
+        versionName "2.2.7"
         minSdkVersion 26
-        targetSdkVersion 28
+        targetSdkVersion 32
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     productFlavors {
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'shredsheets'
+            keyPassword 'password'
+            storeFile file('keyPath')
+            storePassword 'password'
+        }
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.gms:play-services:12.0.1'
 }

@@ -14,16 +14,16 @@ class MajorScale : Scale() {
     override val getEnum: Scales
         get() = Scales.Major
 
-    override val modalHighlighting: Array<BooleanArray>
-        protected get() = arrayOf(
-            booleanArrayOf(true, false, true, false, false, true, true),
-            booleanArrayOf(true, false, true, false, false, true, true),
-            booleanArrayOf(true, true, true, false, false, true, true),
-            booleanArrayOf(true, false, true, true, true, false, false),
-            booleanArrayOf(true, false, true, false, false, false, true),
-            booleanArrayOf(true, false, true, false, false, true, true),
-            booleanArrayOf(true, true, true, false, true, false, true)
-        )
+//    override val modalHighlighting: Array<BooleanArray>
+//        protected get() = arrayOf(
+//            booleanArrayOf(true, false, true, false, false, true, true),
+//            booleanArrayOf(true, false, true, false, false, true, true),
+//            booleanArrayOf(true, true, true, false, false, true, true),
+//            booleanArrayOf(true, false, true, true, true, false, false),
+//            booleanArrayOf(true, false, true, false, false, false, true),
+//            booleanArrayOf(true, false, true, false, false, true, true),
+//            booleanArrayOf(true, true, true, false, true, false, true)
+//        )
 
     override val degrees: Array<IntArray>
         get() = arrayOf(

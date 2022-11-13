@@ -40,6 +40,7 @@ class MainMenuView(var dialogController: IDialogController) : VisTable(true) {
         add(Label("Main Menu", UserInterface.getLabelStyle(24))).height(25f).align(Align.center)
 
         row()
+
         var restoreDefaultsButton = TextButton("Restore Defaults", UserInterface.getTextButtonStyle(36))
         restoreDefaultsButton.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {

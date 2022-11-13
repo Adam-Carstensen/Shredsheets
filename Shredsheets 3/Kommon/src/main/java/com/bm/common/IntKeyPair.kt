@@ -12,4 +12,17 @@ class IntKeyPair(
     override fun hashCode(): Int {
         return KeyOne xor KeyTwo
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        if (!super.equals(other)) return false
+
+        other as IntKeyPair
+
+        if (KeyOne != other.KeyOne) return false
+        if (KeyTwo != other.KeyTwo) return false
+
+        return true
+    }
 }

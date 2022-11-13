@@ -18,6 +18,18 @@ public class Pentatonic extends Scale {
     }
 
     @Override
+    protected boolean[][] getModalHighlighting() {
+        return new boolean[][]{
+                {true, true, false, true, true},
+                {true, false, true, true, false},
+                {true, false, false, true, true},
+                {true, true, false, false, true},
+                {true, false, false, true, false},
+         };
+    }
+
+
+    @Override
     public String[] getChords() {
         return new String[] { "m7", "M", "5 ♭7", "♭3 ♭7", "5" };
     }

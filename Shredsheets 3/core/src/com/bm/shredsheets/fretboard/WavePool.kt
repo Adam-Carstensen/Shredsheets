@@ -23,7 +23,6 @@ class WavePool(val audioDevice: AudioDevice, val lengthInSeconds: Float, val sam
         }
     }
 
-
     fun queueWaveForm(wave: ShortArray) {
         //switch to the next slot in the pool, increasing for each queued waveform
         poolIndex = playingIndex + 1
