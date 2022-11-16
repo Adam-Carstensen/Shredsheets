@@ -16,7 +16,8 @@ public enum Scales {
     Hungarian(10, "Hungarian"),
     Persian(11, "Persian"),
     Neopolitan(12, "Neopolitan"),
-    NeopolitanMinor(13, "Neopolitan Minor");
+    NeopolitanMinor(13, "Neopolitan Minor"),
+    Triads(14, "Triads");
 
     public static Map<String, Scale> ScalesByName = new HashMap<String, Scale>()
     {
@@ -33,6 +34,7 @@ public enum Scales {
         { put("Persian", new Persian());}
         { put("Neopolitan", new Neopolitan());}
         { put("Neopolitan Minor", new NeopolitanMinor());}
+        { put("Triads", new Triads());}
     };
 
     public static Scale[] AllScales = new Scale[]
@@ -50,6 +52,7 @@ public enum Scales {
         new Persian(),
         new Neopolitan(),
         new NeopolitanMinor(),
+        new Triads()
     };
 
     private final int scaleIndex;

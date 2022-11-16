@@ -129,6 +129,8 @@ public abstract class Scale {
                 return "W+h";
             case 4:
                 return "W+W";
+            case 5:
+                return "W+W+h";
             default:
                 return String.valueOf(i);
         }
