@@ -6,8 +6,8 @@ android {
     compileSdk 32
     defaultConfig {
         applicationId "revert.shredsheets"
-        versionCode 118
-        versionName "2.2.7"
+        versionCode 119
+        versionName "2.3.2"
         minSdkVersion 26
         targetSdkVersion 32
     }
