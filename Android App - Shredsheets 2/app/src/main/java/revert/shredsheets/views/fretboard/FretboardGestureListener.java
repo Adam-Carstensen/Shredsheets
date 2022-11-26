@@ -41,7 +41,7 @@ public class FretboardGestureListener extends GestureDetector.SimpleOnGestureLis
         if (distanceX > 0) negativeLogToggle = -1;
 
         float keySwipeProgress = (float) Math.log(Math.abs(distanceX)) * negativeLogToggle;
-        if (keySwipeProgress == Float.NEGATIVE_INFINITY || keySwipeProgress == Float.POSITIVE_INFINITY || keySwipeProgress == Float.NaN)
+        if (keySwipeProgress == Float.NEGATIVE_INFINITY || keySwipeProgress == Float.POSITIVE_INFINITY || Float.isNaN(keySwipeProgress))
             return true;
 
         if (session.isLeftyMode()) keySwipeProgress *= -1;
