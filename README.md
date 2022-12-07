@@ -14,44 +14,7 @@ Alternate tunings.
 
 Lefty mode!
 
-
-Shredsheets on Android currently supports the following scales and modes:
-
-## Major Scale (Most of western music)
-Ionian (Major), Dorian, Phrygian, Lydian, Mixolydian, Aolian (Minor), Locrian
-
-## Pentatonic Major
-Major Pentatonic, Suspended Pentatonic, Man Gong, Ritusen, Minor Pentatonic
-
-## Harmonic Minor
-Harmonic Minor, Locrian #6, Ionian Augmented, Romanian, Phrygian Dominant, Lydian #2, UltraLocrian
-
-## Blues Scale
-Ionian (Major), Phrygian, Lydian, Mixolydian, Aolian (Minor), Locrian
-
-## Augmented
-Augmented, Augmented Inverse
-
-## Diminished
-Diminished, Octotonic
-
-## Double Harmonic
-Double Harmonic Major, Lydian #2 #6, UltraPhrygian, Hungarian Minor, Oriental, Ionian Augmented #2, Locrian bb3 bb7
-
-## Hungarian
-Hungarian, SuperLocrian bb6 bb7, Harmonic Minor b5, SuperLocrian #6, Jazz Minor #5, Dorian b9 #11, Lydian Augmented #3
-
-## Hungarian Minor
-Hungarian Minor, Oriental, Ionian Augmented #2, Locrian bb3 bb7, Double Harmonic, Lydian #6 #2, Alt natural 5 bb7
-
-## Melodic Minor
-Jazz Minor, Dorian b9, Lydian Augmented, Lydian Dominant, Mixolydian b6, SemiLocrian, SuperLocrian
-
-## Neopolitan
-Neopolitan, Leading Whole-Tone, Lydian Augmented Dominant, Lydian Dominant b6, Major Locrian, SemiLocrian b4, SuperLocrian bb3
-
-## Neopolitan Minor
-Neopolitan Minor, Lydian #6, Mixolydian Augmented, Hungarian Gypsy, Locrian Dominant, Ionian #2, UltraLocrian bb3
+Shredsheets on Android supports a ton of scales and modes.
 
 And of course, the beloved Pentatonic Minor, and even Persian Scales!
 
